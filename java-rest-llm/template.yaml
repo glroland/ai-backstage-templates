@@ -10,7 +10,7 @@ metadata:
     - ai
     - llm
 spec:
-  owner: glroland@hotmail.com
+  owner: glroland
   type: service
 
   parameters:

@@ -19,6 +19,7 @@ spec:
       required:
         - component_id
         - owner
+        - github_owner
       properties:
         component_id:
           title: Name
@@ -37,6 +38,10 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        github_owner:
+          title: GitHub Repo Owner
+          type: string
+          description: Repository Owner in GitHub
 
   steps:
     - id: template
@@ -52,7 +57,7 @@ spec:
           artifact_id: ${{ parameters.component_id }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ parameters.owner }}
-          destination: github.com
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
           http_port: 8080
 
     - id: publish
@@ -61,7 +66,7 @@ spec:
       input:
         allowedHosts: ["github.com"]
         description: This is ${{ parameters.component_id }}
-        repoUrl: github.com
+        repoUrl: github.com?repo=${{ parameters.component_id }}&owner=${{ parameters.github_owner }}
         repoVisibility: public # or 'internal' or 'private'
 
     - id: register
