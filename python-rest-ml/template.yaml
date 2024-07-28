@@ -11,7 +11,7 @@ metadata:
     - llm
     - rest
 spec:
-  owner: glroland@hotmail.com
+  owner: glroland
   type: service
 
   parameters:
