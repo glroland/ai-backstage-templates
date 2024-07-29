@@ -59,7 +59,6 @@ commands:
       component: py
       group:
         kind: build
-        isDefault: true
   - id: run-app
     exec:
       commandLine: 'python src/app.py'
