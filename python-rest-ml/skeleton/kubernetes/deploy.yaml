@@ -1,0 +1,41 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ${{values.artifact_id}}-svc
+spec:
+  ports:
+    - name: http-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: ${{values.artifact_id}}-app
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ${{values.artifact_id}}-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${{values.artifact_id}}-app
+  template:
+    metadata:
+      labels:
+        app: ${{values.artifact_id}}-app
+    spec:
+      containers:
+        - name: ${{values.artifact_id}}
+          image: ${{values.artifact_id}}-image:latest
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "100Mi"
+              cpu: "100m"

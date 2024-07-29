@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+.DS_Store
+
+.odo/env
+.odo/odo-file-index.json
+.odo
