@@ -8,7 +8,7 @@ run: lint
 	cd src && python app.py
 
 build:
-	podman build -t ${{values.artifact_id}}-image:latest .
+	podman build -t ${{values.artifact_id}}-image:latest . --platform linux/amd64
 
 push:
 	podman tag ${{values.artifact_id}}-image:latest registry.home.glroland.com/ai/${{values.artifact_id}}:latest

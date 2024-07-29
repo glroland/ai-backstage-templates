@@ -28,7 +28,7 @@ spec:
       containers:
         - name: ${{values.artifact_id}}
           image: registry.home.glroland.com/ai/${{values.artifact_id}}:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080
