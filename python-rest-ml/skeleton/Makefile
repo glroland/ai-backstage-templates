@@ -5,7 +5,7 @@ lint:
 	pylint src/*.py
 
 run: lint
-	python src/app.py
+	cd src && python app.py
 
 build:
 	podman build -t ${{values.artifact_id}}-image:latest .

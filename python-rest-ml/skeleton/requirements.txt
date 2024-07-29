@@ -2,3 +2,5 @@ ipykernel
 pylint
 fastapi
 uvicorn
+requests
+scikit-learn
