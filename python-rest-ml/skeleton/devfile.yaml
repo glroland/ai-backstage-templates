@@ -31,7 +31,7 @@ components:
           value: '5858'
   - name: build
     image:
-      imageName: ${{values.artifact_id}}-image:latest
+      imageName: registry.home.glroland.com/${{values.artifact_id}}:latest
       dockerfile:
         uri: Dockerfile
         buildContext: .
