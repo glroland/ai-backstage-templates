@@ -2,7 +2,6 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{values.artifact_id | dump}}
-  description: ${{values.description}}
   labels:
     app.kubernetes.io/name: ${{values.artifact_id}}-component
     app.kubernetes.io/part-of: ${{values.artifact_id}}-app
