@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: python-rest-ml
-  title: Python REST Service for AI Use Cases
-  description: Python web application ready for Data Science and AI/ML use cases
+  title: Python 3.11 REST Service for AI/ML
+  description: Python web application ready for Data Science and AI/ML use cases.  GitRev=$Id$
   tags:
     - recommended
     - python
