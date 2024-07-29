@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{values.artifact_id | dump}}
-  description: '${{values.description}}'
+  description: '${{values.description | "Backstage Generated Component.  TODO - Provide Description"}}'
   labels:
     app.kubernetes.io/name: ${{values.artifact_id}}-component
     app.kubernetes.io/part-of: ${{values.artifact_id}}-app
@@ -14,7 +14,7 @@ metadata:
     - llm
     - rest
   links:
-    - url: '${{ steps.publish.output.remoteUrl }}'
+    - url: '${{ steps.publish.output.remoteUrl | "http://github.com" }}'
       title: 'GitHub Repository'
       icon: github
       type: git
