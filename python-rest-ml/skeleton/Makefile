@@ -1,10 +1,13 @@
+install:
+        pip install -r requirements.txt
+
 lint:
-	pylint *.py
+	pylint src/*.py
 
 run: lint
-	python app.py
+	python src/app.py
 
-build: lint
+build:
 	podman build -t ${{values.artifact_id}}-image:latest docker/.
 
 dev: lint

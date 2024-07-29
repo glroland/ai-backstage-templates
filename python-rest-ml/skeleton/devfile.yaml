@@ -33,7 +33,7 @@ components:
     image:
       imageName: ${{values.artifact_id}}-image:latest
       dockerfile:
-        uri: docker/Dockerfile
+        uri: Dockerfile
         buildContext: .
         rootRequired: false
   - name: deploy
@@ -52,9 +52,17 @@ commands:
         kind: build
         isDefault: true
       component: py
+  - id: lint
+    exec:
+      commandLine: 'pylint src/*'
+      workingDir: ${PROJECT_SOURCE}
+      component: py
+      group:
+        kind: build
+        isDefault: true
   - id: run-app
     exec:
-      commandLine: 'python ${{values.artifact_id}}.py'
+      commandLine: 'python src/app.py'
       workingDir: ${PROJECT_SOURCE}
       component: py
       group:
@@ -62,7 +70,7 @@ commands:
         isDefault: true
   - id: debug-py
     exec:
-      commandLine: 'pip install debugpy && python -m debugpy --listen 0.0.0.0:${DEBUG_PORT} app.py'
+      commandLine: 'pip install debugpy && python -m debugpy --listen 0.0.0.0:${DEBUG_PORT} src/app.py'
       workingDir: ${PROJECT_SOURCE}
       component: py
       group:
