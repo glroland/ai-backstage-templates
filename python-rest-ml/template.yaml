@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: python-rest-ml
   title: Python 3.11 REST Service for AI/ML
-  description: Python web application ready for Data Science and AI/ML use cases.  GitRev=$Id$
+  description: Python web application ready for Data Science and AI/ML use cases.
   tags:
     - recommended
     - python
