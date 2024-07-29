@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: ${{values.artifact_id}}
-          image: ${{values.artifact_id}}-image:latest
+          image: registry.home.glroland.com/ai/${{values.artifact_id}}:latest
           ports:
             - name: http
               containerPort: 8080
@@ -39,3 +39,15 @@ spec:
             limits:
               memory: "100Mi"
               cpu: "100m"
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: ${{values.artifact_id}}
+spec:
+  to:
+    kind: Service
+    name: ${{values.artifact_id}}-app
+    weight: 100
+  port:
+    targetPort: 8080
