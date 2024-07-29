@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{values.artifact_id | dump}}
-  description: '${{values.description | "Backstage Generated Component.  TODO - Provide Description"}}'
+  description: "${{values.description}}"
   labels:
     app.kubernetes.io/name: ${{values.artifact_id}}-component
     app.kubernetes.io/part-of: ${{values.artifact_id}}-app
@@ -14,13 +14,13 @@ metadata:
     - llm
     - rest
   links:
-    - url: '${{ steps.publish.output.remoteUrl | "http://github.com" }}'
-      title: 'GitHub Repository'
+    - url: "${{ steps.publish.output.remoteUrl}}"
+      title: "GitHub Repository"
       icon: github
       type: git
 
-    - url: 'https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=${{ steps.publish.output.remoteUrl }}'
-      title: 'Code in DevSpaces'
+    - url: "https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=${{ steps.publish.output.remoteUrl }}"
+      title: "Code in DevSpaces"
       icon: catalog
       type: ide
 spec:
