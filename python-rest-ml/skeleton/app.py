@@ -1,3 +1,6 @@
+"""${{values.artifact_id}}
+${{values.description}}
+"""
 import uvicorn
 from fastapi import FastAPI
 
@@ -5,10 +8,17 @@ app = FastAPI()
 
 @app.get("/")
 def default_response():
-    return {"message": f"Hello!  Tell me who you are via /hello?name=NameGoesHere"}
+    """Provide a simple textual response to the root url to verify the application is working.
+    """
+    return {"message": "Hello!  Tell me who you are via /hello?name=NameGoesHere"}
 
 @app.get("/hello")
 def hello(name: str = ""):
+    """Provide a basic response that propagates a query string parameter.
+
+    Keyword arguments:
+    name -- name in which to respond to with greeting
+    """
     return {"message": f"Hello {name}"}
 
 
