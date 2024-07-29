@@ -19,7 +19,6 @@ spec:
       required:
         - component_id
         - owner
-        - github_owner
       properties:
         component_id:
           title: Name
@@ -38,10 +37,17 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-        github_owner:
-          title: GitHub Repo Owner
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
           type: string
-          description: Repository Owner in GitHub
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
 
   steps:
     - id: template
@@ -66,8 +72,7 @@ spec:
       input:
         allowedHosts: ["github.com"]
         description: This is ${{ parameters.component_id }}
-        repoUrl: github.com?repo=${{ parameters.component_id }}&owner=${{ parameters.github_owner }}
-        repoVisibility: public # or 'internal' or 'private'
+        repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
       name: Register
