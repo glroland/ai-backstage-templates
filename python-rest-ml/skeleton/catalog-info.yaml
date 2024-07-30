@@ -13,16 +13,6 @@ metadata:
     - ai
     - llm
     - rest
-  links:
-    - url: "${{ steps.publish.output.remoteUrl}}"
-      title: "GitHub Repository"
-      icon: github
-      type: git
-
-    - url: "https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=${{ steps.publish.output.remoteUrl }}"
-      title: "Code in DevSpaces"
-      icon: catalog
-      type: ide
 spec:
   type: service
   lifecycle: experimental
