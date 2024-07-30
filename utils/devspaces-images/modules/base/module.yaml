@@ -1,0 +1,48 @@
+schema_version: 1
+name: base
+version: v1.0
+description: "Setup for base image"
+artifacts:
+- name: entrypoint
+  path: entrypoint.sh
+  target: entrypoint.sh
+- name: entrypoint-nested
+  path: entrypoint-nested.sh
+  target: entrypoint-nested.sh
+- name: entrypoint-userns
+  path: entrypoint-userns.sh
+  target: entrypoint-userns.sh
+envs:
+- name: HOME
+  value: /home/user
+- name: BUILDAH_ISOLATION
+  value: "chroot"
+packages:
+  install:
+  - procps-ng 
+  - openssl 
+  - compat-openssl11 
+  - libbrotli 
+  - git 
+  - tar 
+  - gzip 
+  - zip 
+  - xz 
+  - unzip 
+  - which 
+  - shadow-utils 
+  - bash 
+  - zsh 
+  - vim-enhanced
+  - vim-minimal
+  - wget 
+  - jq 
+  - ca-certificates
+  - podman 
+  - buildah 
+  - skopeo 
+  - podman-docker
+  - fuse-overlayfs
+  - slirp4netns
+execute:
+- script: init.sh
