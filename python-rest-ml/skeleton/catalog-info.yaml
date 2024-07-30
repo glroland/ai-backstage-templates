@@ -13,6 +13,10 @@ metadata:
     - ai
     - llm
     - rest
+    - host_${{ values.repoUrl.host }}
+    - project_${{ values.repoUrl.project }}
+    - repo_${{ values.repoUrl.repo }}
+    - remoteurl_${{ steps.createRepository.output.remoteUrl }}
 spec:
   type: service
   lifecycle: experimental
