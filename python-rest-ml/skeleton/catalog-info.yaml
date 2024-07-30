@@ -16,7 +16,7 @@ metadata:
     - host_${{ values.repoUrl.host }}
     - project_${{ values.repoUrl.project }}
     - repo_${{ values.repoUrl.repo }}
-    - remoteurl_${{ steps.createRepository.output.remoteUrl }}
+    - remoteurl_${{ parameters.repoUrl }}
 spec:
   type: service
   lifecycle: experimental
