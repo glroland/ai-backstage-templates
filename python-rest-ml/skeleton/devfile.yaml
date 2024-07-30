@@ -46,7 +46,7 @@ components:
         - name: DOCKER_CMD
           value: podman
         - name: VSCODE_DEFAULT_WORKSPACE
-          value: "/projects/${{values.artifact_id}}/dev-workspace.code-workspace"
+          value: "/python.code-workspace"
   - name: build
     image:
       imageName: registry.home.glroland.com/${{values.artifact_id}}:latest
