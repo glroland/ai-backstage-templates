@@ -26,7 +26,10 @@ components:
           privileged: true
     container:
       image: registry.home.glroland.com/paas/tools-python311:20240730-4
-      memoryLimit: 10Gi
+      memoryRequest: 4Gi
+      memoryLimit: 32Gi
+      cpuLimit: 4000m
+      cpuRequest: 1000m
       mountSources: true
       endpoints:
         - name: http-${{values.artifact_id}}
