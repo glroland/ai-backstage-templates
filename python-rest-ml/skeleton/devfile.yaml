@@ -25,7 +25,7 @@ components:
         securityContext:
           privileged: true
     container:
-      image: registry.home.glroland.com/paas/tools-python311:20240730-7
+      image: registry.home.glroland.com/paas/tools-python311:20240730-8
       memoryRequest: 4Gi
       memoryLimit: 32Gi
       cpuLimit: 4000m
