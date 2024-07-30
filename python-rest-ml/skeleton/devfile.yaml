@@ -45,6 +45,8 @@ components:
           value: "/bin/zsh"
         - name: DOCKER_CMD
           value: podman
+        - name: VSCODE_DEFAULT_WORKSPACE
+          value: "/projects/${{values.artifact_id}}/dev-workspace-utilities.code-workspace"
   - name: build
     image:
       imageName: registry.home.glroland.com/${{values.artifact_id}}:latest
