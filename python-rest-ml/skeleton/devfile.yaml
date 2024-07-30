@@ -26,7 +26,6 @@ components:
           privileged: true
     container:
       image: registry.home.glroland.com/paas/tools-python311:20240730-1
-      args: ['tail', '-f', '/dev/null']
       memoryLimit: 10Gi
       mountSources: true
       endpoints:
