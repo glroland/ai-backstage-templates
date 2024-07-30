@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: python-rest-ml
-  title: Python 3.11 REST Service for AI/ML
-  description: Python web application ready for Data Science and AI/ML use cases.
+  title: Python AI/ML REST Service (v1.0)
+  description: Python 3.11 web application ready for Data Science and AI/ML use cases.
   tags:
     - recommended
     - python
@@ -15,34 +15,34 @@ spec:
   type: service
 
   parameters:
-    - title: Provide some simple information
+    - title: Describe the new business service
       required:
         - component_id
         - owner
       properties:
         component_id:
-          title: Name
+          title: Service Name
           type: string
-          description: Unique name of the component
+          description: Unique name of the component (no spaces)
           ui:field: EntityNamePicker
         description:
-          title: Description
+          title: Description of the new business service and its purpose
           type: string
-          description: Help others understand what this website is for.
+          description: Help others understand what this service is for and the business purpose it supports.
         owner:
-          title: Owner
+          title: Developer Catalog Owner
           type: string
-          description: Owner of the component
+          description: Owner of the component in Red Hat Develper Hub
           ui:field: OwnerPicker
           ui:options:
             allowedKinds:
               - Group
-    - title: Choose a location
+    - title: Choose a GitHug location for the service
       required:
         - repoUrl
       properties:
         repoUrl:
-          title: Repository Location
+          title: Git Repository Location
           type: string
           ui:field: RepoUrlPicker
           ui:options:
