@@ -71,6 +71,8 @@ spec:
       action: publish:github
       input:
         allowedHosts: ["github.com"]
+        defaultBranch: main
+        protectDefaultBranch: false
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public    # or 'internal' or 'private'
