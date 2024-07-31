@@ -12,6 +12,9 @@ artifacts:
 - name: entrypoint-userns
   path: entrypoint-userns.sh
   target: entrypoint-userns.sh
+- name: python-code-workspace
+  path: python.code-workspace
+  target: python.code-workspace
 envs:
 - name: HOME
   value: /home/user

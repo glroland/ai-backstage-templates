@@ -9,12 +9,14 @@ chmod -R g=u /home
 cp /tmp/artifacts/entrypoint.sh /entrypoint.sh
 cp /tmp/artifacts/entrypoint-nested.sh /entrypoint-nested.sh
 cp /tmp/artifacts/entrypoint-userns.sh /entrypoint-userns.sh
+cp /tmp/artifacts/python.code-workspace /python.code-workspace
 chown 0:0 /entrypoint.sh
 chmod +x /entrypoint.sh
 chown 0:0 /entrypoint-nested.sh
 chmod +x /entrypoint-nested.sh
 chown 0:0 /entrypoint-userns.sh
 chmod +x /entrypoint-userns.sh
+chown 0:0 /python.code-workspace
 chown 0:0 /etc/passwd
 chown 0:0 /etc/group
 chmod g=u /etc/passwd /etc/group
