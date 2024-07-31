@@ -1,0 +1,18 @@
+{
+	"extensions": {
+		"recommendations": [
+			"redhat.vscode-yaml",
+			"vscjava.vscode-java-pack",
+			"redhat.fabric8-analytics",
+			"redhat.vscode-openshift-connector",
+			"redhat.vscode-tekton-pipelines",
+			"redhat.vscode-openshift-java-pack",
+			"redhat.vscode-knative",
+			"ms-vscode.js-debug"
+		]
+	},
+	"settings": {
+		"editor.wordWrap": "on",
+		"files.autoSave": "off"
+	}
+}

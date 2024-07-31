@@ -15,6 +15,9 @@ artifacts:
 - name: python-code-workspace
   path: python.code-workspace
   target: python.code-workspace
+- name: java-code-workspace
+  path: java.code-workspace
+  target: java.code-workspace
 envs:
 - name: HOME
   value: /home/user
