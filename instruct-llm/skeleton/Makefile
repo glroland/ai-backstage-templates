@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-reinstall: clean
+install: clean
 	./bin/reinstall_ilab.sh
 
 clean:
