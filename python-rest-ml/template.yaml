@@ -37,7 +37,7 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-    - title: Choose a GitHug location for the service
+    - title: Choose a GitHub location for the service
       required:
         - repoUrl
       properties:
