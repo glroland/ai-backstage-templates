@@ -1,3 +1,0 @@
-lint:
-	pylint *.py
-

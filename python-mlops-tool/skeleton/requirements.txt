@@ -1,3 +1,0 @@
-ipykernel
-pylint
-click
