@@ -35,6 +35,10 @@ echo "Removing LLama.CPP from Cache"
 pip cache remove llama_cpp_python
 echo
 
+echo "Ensuring Pip is Upgraded"
+pip3 install --upgrade pip
+echo
+
 echo "Installing InstructLab..."
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -52,8 +56,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     else
         echo "CUDA Not Found"
-        pip install instructlab[cpu] \
-            --extra-index-url=https://download.pytorch.org/whl/cpu \
+        pip install "instructlab[cpu]" \
+            --extra-index-url="https://download.pytorch.org/whl/cpu" \
             -C cmake.args="-DLLAMA_NATIVE=off"
 
     fi
