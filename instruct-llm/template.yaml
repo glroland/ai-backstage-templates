@@ -1,0 +1,92 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: instruct-llm
+  title: Trained LLM (v1.0)
+  description: Large Language Model tuning and training for application or enterprise use cases.
+  tags:
+    - recommended
+    - python
+    - ai
+    - llm
+spec:
+  owner: glroland
+  type: model
+
+  parameters:
+    - title: Describe the new LLM you are creating
+      required:
+        - component_id
+        - owner
+      properties:
+        component_id:
+          title: Model Name
+          type: string
+          description: Unique name of the component (no spaces)
+          ui:field: EntityNamePicker
+        description:
+          title: Description of the new large language model and its purpose
+          type: string
+          description: Help others understand what this model is for and the business purpose it supports.
+        owner:
+          title: Developer Catalog Owner
+          type: string
+          description: Owner of the component in Red Hat Develper Hub
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: Choose a GitHub location for the model creation artifacts
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Git Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  steps:
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        copyWithoutRender:
+          - .github/workflows/*
+        values:
+          component_id: ${{ parameters.component_id }}
+          description: ${{ parameters.description }}
+          artifact_id: ${{ parameters.component_id }}
+          java_package_name: ${{ parameters.java_package_name }}
+          owner: ${{ parameters.owner }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          http_port: 8080
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: public    # or 'internal' or 'private'
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: "/catalog-info.yaml"
+
+  output:
+    links:
+      - title: GitHub Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Code in DevSpaces
+        url: https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=${{ steps.publish.output.remoteUrl }}
+      - title: Developer Hub Catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
