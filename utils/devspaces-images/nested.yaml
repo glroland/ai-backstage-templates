@@ -11,6 +11,8 @@ modules:
   - name: base
   - name: python3
   - name: podman-compose
+  - name: java21
+  - name: maven
 run:
   entrypoint:
   - "/entrypoint-nested.sh"

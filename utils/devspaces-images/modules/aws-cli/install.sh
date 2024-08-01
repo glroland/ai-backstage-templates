@@ -5,6 +5,6 @@ curl -fsSL -o ${TEMP_DIR}/awscliv2.zip https://awscli.amazonaws.com/awscli-exe-l
 unzip ${TEMP_DIR}/awscliv2.zip -d ${TEMP_DIR}
 ${TEMP_DIR}/aws/install
 rm -rf "${TEMP_DIR}"
-pip3 install aws-sam-cli
-pip3 install awscli-local
+pip install aws-sam-cli
+pip install awscli-local
 chmod -R g=u ${HOME}
