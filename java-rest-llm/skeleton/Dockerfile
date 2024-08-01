@@ -10,4 +10,4 @@ WORKDIR /projects
 COPY ./target/${{values.artifact_id}}-0.0.1-SNAPSHOT.jar  .
 
 # Specify the command to run on container start
-CMD [ "java", "-jar" "${{values.artifact_id}}-0.0.1-SNAPSHOT.jar" ]
+CMD [ "java", "-jar", "${{values.artifact_id}}-0.0.1-SNAPSHOT.jar" ]
