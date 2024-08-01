@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: java-rest-llm
-  title: Java REST Service with LLM Support
+  title: Java AI/ML REST Service (v1.0)
   description: Spring Boot microservice template, preconfigured for LLM use cases with LangChain4j
   tags:
     - recommended
