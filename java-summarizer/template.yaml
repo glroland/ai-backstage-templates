@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: java-rest-llm
-  title: Java AI/ML REST Service (v1.0)
+  name: java-summarizer
+  title: GenAI Content Summarization Service (v1.0)
   description: Spring Boot microservice template, preconfigured for LLM use cases with LangChain4j
   tags:
     - recommended
@@ -32,7 +32,7 @@ spec:
         description:
           title: Description
           type: string
-          description: Describe the AI use case that this supports.
+          description: Describe the Generative AI use case that this supports.
         owner:
           title: Owner
           type: string

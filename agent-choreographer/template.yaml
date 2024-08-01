@@ -1,12 +1,12 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: java-rest-llm
-  title: Java AI/ML REST Service (v1.0)
-  description: Spring Boot microservice template, preconfigured for LLM use cases with LangChain4j
+  name: agent-choreographer
+  title: GenAI Multi-Agent Choreographer (v1.0)
+  description: LangGraph-based microservice choreograping multiple Generative AI agents around a complex multi-dimensional use case.  Developed in Python with LangGraph.
   tags:
     - recommended
-    - java
+    - python
     - ai
     - llm
 spec:
@@ -18,21 +18,16 @@ spec:
       required:
         - component_id
         - owner
-        - java_package_name
       properties:
         component_id:
           title: Name
           type: string
           description: Unique name of the component
           ui:field: EntityNamePicker
-        java_package_name:
-          title: Java Package Name
-          type: string
-          description: Name for the java package. eg (io.backstage.blah)
         description:
           title: Description
           type: string
-          description: Describe the AI use case that this supports.
+          description: Describe the Generative AI use case that this supports.
         owner:
           title: Owner
           type: string
@@ -95,3 +90,6 @@ spec:
       - title: Developer Hub Catalog
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
+      - title: OpenShift AI
+        icon: chat
+        url: https://rhods-dashboard-redhat-ods-applications.apps.ocpprod.home.glroland.com/projects
