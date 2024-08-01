@@ -24,8 +24,8 @@ components:
           privileged: true
     container:
       image: registry.home.glroland.com/paas/tools-nested-generic:20240731-1
-      memoryRequest: 500Mi
-      memoryLimit: 2Gi
+      memoryRequest: 1000Mi
+      memoryLimit: 4Gi
       cpuRequest: 1000m
       cpuLimit: 4000m
       mountSources: true
