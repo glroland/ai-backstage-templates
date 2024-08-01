@@ -11,7 +11,6 @@ metadata:
     - REST
   projectType: Python
   language: Python
-  provider: Red Hat
   version: 3.1.0
 attributes:
   controller.devfile.io/storage-type: per-workspace
