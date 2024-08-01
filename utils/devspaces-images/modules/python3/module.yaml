@@ -7,4 +7,7 @@ packages:
   - python3.11-pip
   - python3.11-devel
   - make
+  - cmake
+  - gcc-c++
+  - rsync
 

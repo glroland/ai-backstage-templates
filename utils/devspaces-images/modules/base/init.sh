@@ -44,6 +44,6 @@ rm -f /tmp/helm.tgz
 mv /tmp/linux-amd64/helm /usr/local/bin/helm
 rm -rf /tmp/linux-amd64
 chmod 755 /usr/local/bin/helm
-curl -o /usr/local/bin/odo https://developers.redhat.com/content-gateway/file/pub/openshift-v4/clients/odo/v3.16.1/odo-linux-amd64
+curl -L -o /usr/local/bin/odo https://developers.redhat.com/content-gateway/file/pub/openshift-v4/clients/odo/v3.16.1/odo-linux-amd64
 chmod 755 /usr/local/bin/odo
 
