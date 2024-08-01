@@ -1,4 +1,4 @@
-package com.glroland.asdf1.util;
+package ${{values.java_package_name}}.util;
 
 
 import org.apache.commons.logging.Log;
