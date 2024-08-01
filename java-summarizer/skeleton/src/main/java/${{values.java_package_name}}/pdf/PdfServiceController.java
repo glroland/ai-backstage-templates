@@ -126,7 +126,7 @@ public class PdfServiceController
 
     private String summarizeChunk(String prompt, TextSegment textSegment)
     {
-        EmbeddingModel embeddingModel = chatLanguageModelFactory.createOpenAiEmbeddingModel();
+        EmbeddingModel embeddingModel = chatLanguageModelFactory.createDefaultEmbeddingModel();
         Embedding promptEmbedding = createEmbedding(embeddingModel, prompt);
 
         // Encode text segment
@@ -135,7 +135,7 @@ public class PdfServiceController
         embeddingStore.add(textSegmentEmbedding, textSegment);
 
         // Send related embeddings to LLM for inclusion in user message
-        ChatLanguageModel chatLanguageModel = chatLanguageModelFactory.createOpenAi();
+        ChatLanguageModel chatLanguageModel = chatLanguageModelFactory.createDefault();
         
         ContentRetriever contentRetriever = EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(embeddingStore)
