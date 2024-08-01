@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: instruct-llm
-  title: Train a Domain-Specific LLM (v1.0)
+  title: GenAI Train a Domain-Specific LLM (v1.0)
   description: Large Language Model tuning and training for application or enterprise use cases.
   tags:
     - recommended
