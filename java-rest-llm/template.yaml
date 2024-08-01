@@ -87,8 +87,10 @@ spec:
 
   output:
     links:
-      - title: Repository
+      - title: GitHub Repository
         url: ${{ steps.publish.output.remoteUrl }}
-      - title: Open in catalog
+      - title: Code in DevSpaces
+        url: https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=${{ steps.publish.output.remoteUrl }}
+      - title: Developer Hub Catalog
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
