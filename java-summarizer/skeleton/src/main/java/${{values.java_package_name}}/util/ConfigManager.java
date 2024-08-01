@@ -18,7 +18,7 @@ public class ConfigManager
     @Autowired
     private Environment env;
 
-    public static final String CONFIG_GROUP = "ai-product-catalog";
+    public static final String CONFIG_GROUP = "${{values.artifact_id}}";
 
     public static final String CONFIG_ENTRY_ENDPOINT = "inference-endpoint";
     public static final String CONFIG_ENTRY_APIKEY = "api-key";

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head> 
-    <title>Summarize PDF Upload</title> 
+    <title>Summarize PDF Upload (${{values.artifact_id}})</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -70,7 +70,8 @@
     </script>
 </head>
 <body>
-    <h1 align="center">Chat-Based Product Search</h1>
+    <h1 align="center">Chat-Based Product Search (${{values.artifact_id}})</h1>
+    <h3 align="center">${{values.description}}</h3>
     <br/>
     <p>
         <table align="center" border="0" width="70%" id="chat_table">
