@@ -27,8 +27,7 @@ public class ChatServiceController
     public String chat(@RequestParam(value = "userMessage", defaultValue = "What is the current date and time?") 
                         String userMessage)
     {
-        // TODO Revert back to default
-        ChatLanguageModel chatLanguageModel = chatLanguageModelFactory.createOpenAi();
+        ChatLanguageModel chatLanguageModel = chatLanguageModelFactory.createDefault();
 
         SimpleChatAgent agent = AiServices.builder(SimpleChatAgent.class)
                 .chatLanguageModel(chatLanguageModel)

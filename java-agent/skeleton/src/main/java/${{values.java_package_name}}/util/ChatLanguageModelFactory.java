@@ -249,7 +249,7 @@ public class ChatLanguageModelFactory
         if ((defaultModel == null) || (defaultModel.length() == 0))
         {
             log.warn("No default chat model specified.  Using default...");
-            defaultModel = ConfigManager.CHAT_MODEL_MISTRAL;
+            defaultModel = ConfigManager.CHAT_MODEL_OPENAI;
         }
 
         if(ConfigManager.CHAT_MODEL_MISTRAL.equalsIgnoreCase(defaultModel))
@@ -288,7 +288,7 @@ public class ChatLanguageModelFactory
         if ((defaultModel == null) || (defaultModel.length() == 0))
         {
             log.warn("No default chat model specified.  Using default for embedding model...");
-            defaultModel = ConfigManager.CHAT_MODEL_MISTRAL;
+            defaultModel = ConfigManager.CHAT_MODEL_OPENAI;
         }
 
         if(ConfigManager.CHAT_MODEL_MISTRAL.equalsIgnoreCase(defaultModel))

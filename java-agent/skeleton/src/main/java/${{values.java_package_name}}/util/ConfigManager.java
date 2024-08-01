@@ -1,4 +1,4 @@
-package ${{values.java_package_name}}.util;
+package com.glroland.asdf1.util;
 
 
 import org.apache.commons.logging.Log;
@@ -17,7 +17,7 @@ public class ConfigManager
     @Autowired
     private Environment env;
 
-    public static final String CONFIG_GROUP = "${{values.artifact_id}}";
+    public static final String CONFIG_GROUP = "asdf1";
 
     public static final String CONFIG_ENTRY_ENDPOINT = "inference-endpoint";
     public static final String CONFIG_ENTRY_APIKEY = "api-key";
@@ -38,12 +38,27 @@ public class ConfigManager
     public static final String AGENT_TYPE_SIMPLE = "simple";
     public static final String AGENT_TYPE_TOOL = "tool";
 
+    private String getProperty(String propKey)
+    {
+        if(log.isDebugEnabled())
+        {
+            log.debug("Getting property from env: propKey = " + propKey);
+        }
+        return env.getProperty(propKey);
+    }
+
     private String getValue(String chatModel, String propertyName)
     {
+        // log every config lookup request
+        if (log.isDebugEnabled())
+        {
+            log.debug("Config Lookup Request -- [chatModel=" + chatModel + "] [propertyName=" + propertyName + "]");
+        }
+
         // order of precidence - chat model override first
         if (StringUtils.isNotEmpty(chatModel))
         {
-            String value = env.getProperty(CONFIG_GROUP + "." + chatModel + "." + propertyName);
+            String value = getProperty(CONFIG_GROUP + "." + chatModel + "." + propertyName);
             if (value != null)
             {
                 log.debug("Configured Value -- [" + chatModel + "] [propertyName=" + propertyName + "] [value=" + value + "]");                
@@ -52,8 +67,8 @@ public class ConfigManager
         }
             
         // order of precidence - root override second
-        String value = env.getProperty(CONFIG_GROUP + "." + propertyName);
-        log.debug("Configured Value -- [DEFAULT] [propertyName=" + propertyName + "] [value=" + value + "]");                
+        String value = getProperty(CONFIG_GROUP + "." + propertyName);
+        log.debug("Configured Value -- [DEFAULT] [propertyName=" + propertyName + "] [value=" + value + "] [FYI-RequestedModel=" + chatModel + "]");                
         return value;
     }
 
@@ -158,8 +173,8 @@ public class ConfigManager
     }
 
     public String getDefaultChatModel()
-    {
-        String value = env.getProperty(CONFIG_GROUP + "." + CONFIG_ENTRY_DEFAULT_CHAT_MODEL);
+    {        
+        String value = getValue(null, CONFIG_ENTRY_DEFAULT_CHAT_MODEL);
         if (value != null)
         {
             log.debug("Configured Value -- [" + CONFIG_ENTRY_DEFAULT_CHAT_MODEL + "] [value=" + value + "]");                
