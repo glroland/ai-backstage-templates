@@ -52,7 +52,7 @@ public class ConfigManager
         }
             
         // order of precidence - root override second
-        String value = env.getProperty(CONFIG_GROUP + "." + chatModel + "." + propertyName);
+        String value = env.getProperty(CONFIG_GROUP + "." + propertyName);
         log.debug("Configured Value -- [DEFAULT] [propertyName=" + propertyName + "] [value=" + value + "]");                
         return value;
     }
