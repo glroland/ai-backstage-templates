@@ -14,6 +14,10 @@ metadata:
       title: 'Code in DevSpaces'
       icon: catalog
       type: ide
+    - title: OpenShift AI
+      icon: chat
+      url: https://rhods-dashboard-redhat-ods-applications.apps.ocpprod.home.glroland.com/projects
+      type: ide
   tags:
     - python
     - ai
