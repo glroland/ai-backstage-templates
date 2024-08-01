@@ -4,8 +4,8 @@ clean:
 package:
 	mvn package
 
-run: package
-	java -jar target/${{values.artifact_id}}-0.0.1-SNAPSHOT.jar
+run:
+	mvn spring-boot:run
 
 build:
 	podman build -t ${{values.artifact_id}}-image:latest . --platform linux/amd64
