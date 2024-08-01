@@ -1,5 +1,6 @@
 package ${{values.java_package_name}}.util;
 
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class ConfigManager
     public static final String CONFIG_ENTRY_TEMP = "temperature";
     public static final String CONFIG_ENTRY_TOP_P = "top-p";
     public static final String CONFIG_ENTRY_EMBEDDINGS_DIMENSIONS = "embeddings-dimensions";
+    public static final String CONFIG_ENTRY_DEFAULT_CHAT_MODEL = "default-chat-model";
 
     public static final String CHAT_MODEL_MISTRAL = "mistral";
     public static final String CHAT_MODEL_OPENAI = "openai";
@@ -157,8 +159,14 @@ public class ConfigManager
 
     public String getDefaultChatModel()
     {
-        String value = env.getProperty("ai-product-catalog.default-chat-model");
-        log.debug("Configured Default Chat Model = " + value);
-        return value;
+        String value = env.getProperty(CONFIG_GROUP + "." + CONFIG_ENTRY_DEFAULT_CHAT_MODEL);
+        if (value != null)
+        {
+            log.debug("Configured Value -- [" + CONFIG_ENTRY_DEFAULT_CHAT_MODEL + "] [value=" + value + "]");                
+            return value;
+        }
+
+        log.warn("No configured default chat model.  Assuming OpenAI");
+        return CHAT_MODEL_OPENAI;
     }
 }
