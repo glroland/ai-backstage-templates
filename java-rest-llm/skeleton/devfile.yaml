@@ -11,8 +11,9 @@ metadata:
     - AI
   projectType: springboot
   language: Java
-  version: 2.2.0
-  globalMemoryLimit: 2674Mi
+  version: 3.1.0
+attributes:
+  controller.devfile.io/storage-type: per-workspace
 components:
   - name: projects
     volume:
