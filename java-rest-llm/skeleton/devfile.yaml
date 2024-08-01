@@ -26,8 +26,8 @@ components:
       image: registry.home.glroland.com/paas/tools-nested-generic:20240731-1
       memoryRequest: 500Mi
       memoryLimit: 2Gi
-      cpuLimit: 1000m
-      cpuRequest: 4000m
+      cpuRequest: 1000m
+      cpuLimit: 4000m
       mountSources: true
       endpoints:
         - name: http-${{values.artifact_id}}
