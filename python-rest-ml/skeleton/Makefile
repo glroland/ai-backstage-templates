@@ -7,6 +7,9 @@ lint:
 run: lint
 	cd src && python app.py
 
+runui: lint
+	cd src && streamlit run ui.py --server.port 8080 --server.address 0.0.0.0  --server.headless true --logger.level debug
+
 build:
 	podman build -t ${{values.artifact_id}}-image:latest . --platform linux/amd64
 

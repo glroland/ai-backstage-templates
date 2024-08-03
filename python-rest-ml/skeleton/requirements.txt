@@ -4,3 +4,7 @@ fastapi
 uvicorn
 requests
 scikit-learn
+openai
+streamlit
+watchdog
+
