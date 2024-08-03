@@ -11,11 +11,11 @@ with st.sidebar:
                                    value="http://envision:8000/v1")
     openai_api_model_name = st.text_input(label="Model Name",
                                           key="openai_api_model_name",
-                                          value="vllm-service")
+                                          value="meta-llama/Meta-Llama-3.1-8B-Instruct")
     openai_max_tokens = st.number_input(label="Max Tokens",
                                         min_value=1,
                                         max_value=10000,
-                                        value=100,
+                                        value=1000,
                                         step=10)
     openai_temperature = st.number_input(label="Temperature",
                                          min_value=0.0,
@@ -26,19 +26,26 @@ with st.sidebar:
 
 st.title("💬 ${{values.artifact_id}} Agent")
 
-system_prompt = st.text_input(label="System Prompt",
+system_prompt_showhide = st.empty()
+system_prompt_container = system_prompt_showhide.container()
+system_prompt = system_prompt_container.text_area(label="System Prompt",
                 key="system_prompt",
                 value="You are a helpful sales agent for a shoe store, who is always " +
                       "positive and never participates in negative conversations. " +
                       "Only participate in conversations related to shoes and the store.")
-if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
-st.chat_message("system").write(system_prompt)
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+if "messages" not in st.session_state:
+    st.session_state["messages"] = [{"role": "assistant", "content": system_prompt}]
 
 if prompt := st.chat_input():
+
+    system_prompt_showhide.empty()
+    if 'system_prompt' in st.session_state and st.session_state.system_prompt == True:
+        st.session_state.system_prompt = True
+
+    for msg in st.session_state.messages:
+        st.chat_message(msg["role"]).write(msg["content"])
+
     client = OpenAI(base_url=openai_api_url,
                     api_key="api-key")
     st.session_state.messages.append({"role": "user", "content": prompt})
