@@ -24,11 +24,17 @@ with st.sidebar:
                                          step=0.1)
 
 
-st.title("💬 Chatbot (${{values.artifact_id}})")
+st.title("💬 ${{values.artifact_id}} Agent")
 
+system_prompt = st.text_input(label="System Prompt",
+                key="system_prompt",
+                value="You are a helpful sales agent for a shoe store, who is always " +
+                      "positive and never participates in negative conversations. " +
+                      "Only participate in conversations related to shoes and the store.")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
+st.chat_message("system").write(system_prompt)
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
