@@ -16,7 +16,7 @@ init:
 generate:
 	rsync -r -v taxonomy work
 	cd work && ilab taxonomy diff
-	cd work && ilab data generate
+	cd work && ilab data generate --endpoint-url http://envision:8000/v1 --model granite --chunk-word-count 400
 
 trainmac:
 	cd work && ilab model train
