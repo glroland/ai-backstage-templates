@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-pip install podman-compose
+python3.11 -m pip install podman-compose
 
 chmod -R g=u ${HOME}

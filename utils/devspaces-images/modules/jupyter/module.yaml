@@ -1,0 +1,14 @@
+schema_version: 1
+name: jupyter
+version: v1.0
+description: "Installs Jupyter Notebook"
+artifacts:
+- name: requirements
+  path: requirements.txt
+  target: requirements.txt
+modules:
+    install:
+        - name: python3
+execute:
+- script: init.sh
+

@@ -18,6 +18,12 @@ artifacts:
 - name: java-code-workspace
   path: java.code-workspace
   target: java.code-workspace
+- name: entrypoint-notebook
+  path: entrypoint-notebook.sh
+  target: entrypoint-notebook.sh
+- name: requirements
+  path: requirements.txt
+  target: requirements.txt
 envs:
 - name: HOME
   value: /home/user
