@@ -5,7 +5,7 @@ lint:
 	pylint src/*.py
 
 run: lint
-	cd src && streamlit run ui.py --server.port 8080 --server.address 0.0.0.0  --server.headless true --logger.level debug
+	cd src && streamlit run app.py --server.port 8080 --server.address 0.0.0.0  --server.headless true --logger.level debug
 
 build:
 	podman build -t ${{values.artifact_id}}-image:latest . --platform linux/amd64

@@ -40,7 +40,7 @@ if "messages" not in st.session_state:
 if prompt := st.chat_input():
 
     system_prompt_showhide.empty()
-    if 'system_prompt' in st.session_state and st.session_state.system_prompt == True:
+    if 'system_prompt' in st.session_state and st.session_state.system_prompt is True:
         st.session_state.system_prompt = True
 
     for msg in st.session_state.messages:
