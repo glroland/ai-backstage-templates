@@ -11,7 +11,7 @@
       ],
       "key": "javascript",
       "id": "javascript",
-      "title": "JavaScript",
+      "title": "JavaScriptAAA",
       "quadrant": "languages",
       "links": [
         {
@@ -23,7 +23,7 @@
           "title": "TypeScript"
         }
       ],
-      "description": "Excepteur **sint** occaecat *cupidatat* non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n```ts\nconst x = \"3\";\n```\n"
+      "description": "Hi my name is Lee and I'm testing to see whether this refreshes in tech radar.\n\n```ts\nconst x = \"3\";\n```\n"
     },
     {
       "timeline": [

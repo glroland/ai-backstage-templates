@@ -8,7 +8,7 @@ spec:
     namespace: devhub
     server: 'https://kubernetes.default.svc'
   source:
-    path: utils/ai-rhdh-customization-provider/helm
+    path: 'utils/ai-rhdh-customization-provider/helm'
     repoURL: 'https://github.com/glroland/ai-product-catalog.git'
     targetRevision: HEAD
     helm:
