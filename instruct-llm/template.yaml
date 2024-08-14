@@ -72,8 +72,8 @@ spec:
         allowedHosts: ["github.com"]
         defaultBranch: main
         protectDefaultBranch: false
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+        description: This is ${{ parameters.repoUrl }} #${{ parameters.component_id }}
+        repoUrl: github.com?repo=thisisatestrep&owner=glroland  #${{ parameters.repoUrl }}
         repoVisibility: public    # or 'internal' or 'private'
 
     - id: register
