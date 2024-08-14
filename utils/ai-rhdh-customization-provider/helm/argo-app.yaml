@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: 'utils/ai-rhdh-customization-provider/helm'
-    repoURL: 'https://github.com/glroland/ai-product-catalog.git'
+    repoURL: 'https://github.com/glroland/ai-backstage-templates.git'
     targetRevision: HEAD
     helm:
       valueFiles:
