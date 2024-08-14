@@ -17,5 +17,8 @@ push:
 deploy:
 	cd helm/ai-rhdh-customization-provider && helm install ai-rhdh-customization-provider .
 
+undeploy:
+	helm uninstall ai-rhdh-customization-provider
+
 dev: lint
 	odo dev
