@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ai-rhdh-customization-provider
+  description: "Web Server for Customization Provider Content"
+  labels:
+    app.kubernetes.io/name: ai-rhdh-customization-provider-component
+    app.kubernetes.io/part-of: ai-rhdh-customization-provider-app
+  annotations:
+    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"ai-rhdh-customization-provider-deploy"}]'
+
+  links:
+    - url: 'https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=https://github.com/glroland/ai-backstage-templates.git'
+      title: 'Code in DevSpaces'
+      icon: catalog
+      type: ide
+    - title: OpenShift AI
+      icon: chat
+      url: https://rhods-dashboard-redhat-ods-applications.apps.ocpprod.home.glroland.com/projects
+  tags:
+    - python
+    - ai
+    - llm
+    - rest
+spec:
+  type: service
+  lifecycle: experimental
+  owner: user:default/glroland
+  system: aiml

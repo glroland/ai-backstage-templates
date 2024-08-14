@@ -1,0 +1,4 @@
+ipykernel
+pylint
+fastapi
+uvicorn
