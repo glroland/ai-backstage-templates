@@ -15,7 +15,7 @@ push:
 	podman push registry.home.glroland.com/paas/ai-rhdh-customization-provider:latest --tls-verify=false
 
 deploy:
-	cd helm/ai-rhdh-customization-provider && helm install ai-rhdh-customization-provider .
+	cd helm && helm install ai-rhdh-customization-provider .
 
 undeploy:
 	helm uninstall ai-rhdh-customization-provider

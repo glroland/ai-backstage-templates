@@ -6,9 +6,9 @@ spec:
   destination:
     name: ''
     namespace: devhub
-    server: 'https://api.ocpbm.home.glroland.com:6443'
+    server: 'https://kubernetes.default.svc'
   source:
-    path: utils/ai-rhdh-customization-provider/helm/ai-rhdh-customization-provider
+    path: utils/ai-rhdh-customization-provider/helm
     repoURL: 'https://github.com/glroland/ai-product-catalog.git'
     targetRevision: HEAD
     helm:
@@ -16,3 +16,7 @@ spec:
         - values.yaml
   sources: []
   project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
