@@ -62,7 +62,6 @@
                     "description": "Long description for trial"
                 }
             ]
-        },
-        ...
+        }
     ]
 }
