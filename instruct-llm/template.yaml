@@ -66,14 +66,14 @@ spec:
           http_port: 8080
 
     - id: publish
-      name: Publish to ${{ parameters.repoUrl }}
+      name: Publish to GitHub
       action: publish:github
       input:
         allowedHosts: ["github.com"]
         defaultBranch: main
         protectDefaultBranch: false
-        description: This is ${{ parameters.repoUrl }} #${{ parameters.component_id }}
-        repoUrl: github.com?repo=thisisatestrep&owner=glroland  #${{ parameters.repoUrl }}
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public    # or 'internal' or 'private'
 
     - id: register
