@@ -16,4 +16,7 @@ spec:
   to:
     kind: Service
     name: {{ include "ai-rhdh-customization-provider.fullname" . }}
-
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Allow
+  wildcardPolicy: None

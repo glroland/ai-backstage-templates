@@ -7,10 +7,10 @@ serviceAccount:
   name: ""
 
 image:
-  repository: registry.home.glroland.com/ai-product-catalog/
-  name: svc
+  repository: registry.home.glroland.com/paas/
+  name: ai-rhdh-customization-provider
   tag: 1
-  pullSecret: ai-product-catalog-ocp4-pull-secret
+  pullSecret: paas-ocp4-pull-secret
   pullPolicy: IfNotPresent
   port: 8080
 

@@ -44,7 +44,7 @@ spec:
           terminationMessagePolicy: File
           readinessProbe:
             httpGet:
-              path: /actuator/health/readiness
+              path: /
               port: {{ .Values.image.port }}
               scheme: HTTP
             timeoutSeconds: 1
@@ -53,7 +53,7 @@ spec:
             failureThreshold: 3
           livenessProbe:
             httpGet:
-              path: /actuator/health/liveness
+              path: /
               port: {{ .Values.image.port }}
               scheme: HTTP
             timeoutSeconds: 1
@@ -62,7 +62,7 @@ spec:
             failureThreshold: 3
           startupProbe:
             httpGet:
-              path: /actuator/health/liveness
+              path: /
               port: {{ .Values.image.port }}
               scheme: HTTP
             timeoutSeconds: 1
