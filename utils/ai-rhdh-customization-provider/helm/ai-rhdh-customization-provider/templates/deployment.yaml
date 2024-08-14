@@ -23,11 +23,11 @@ spec:
       labels:
         {{- include "ai-rhdh-customization-provider.selectorLabels" . | nindent 8 }}
     spec:
-      {{- if .Values.global.image.pullSecret }}
+      {{- if .Values.image.pullSecret }}
       imagePullSecrets:
-      - name: {{ .Values.global.image.pullSecret }}
+      - name: {{ .Values.image.pullSecret }}
       {{- end }}
-      {{ if eq .Values.global.useServiceAccount true }}
+      {{ if eq .Values.useServiceAccount true }}
       serviceAccountName: {{ include "ai-rhdh-customization-provider.fullname" . }}
       {{ end }}
       securityContext:
@@ -36,8 +36,8 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.global.image.repository }}{{ .Values.image.name }}:{{ .Values.global.image.tag }}"
-          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
           - containerPort: {{ .Values.image.port }}
           terminationMessagePath: /dev/termination-log
