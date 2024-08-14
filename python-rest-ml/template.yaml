@@ -11,7 +11,7 @@ metadata:
     - llm
     - rest
 spec:
-  owner: glroland
+  owner: user:default/glroland
   type: service
 
   parameters:
@@ -90,10 +90,10 @@ spec:
         url: ${{ steps.publish.output.remoteUrl }}
         icon: github
       - title: Code in DevSpaces
-        url: https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=${{ steps.publish.output.remoteUrl }}
+        url: https://devspaces.apps.ocpbm.home.glroland.com/dashboard/#/load-factory?url=${{ steps.publish.output.remoteUrl }}
       - title: Developer Hub Catalog
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
       - title: OpenShift AI
         icon: chat
-        url: https://rhods-dashboard-redhat-ods-applications.apps.ocpprod.home.glroland.com/projects
+        url: https://rhods-dashboard-redhat-ods-applications.apps.ocpbm.home.glroland.com/projects

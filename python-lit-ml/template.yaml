@@ -1,33 +1,35 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: instruct-llm
-  title: GenAI Train a Domain-Specific LLM (v1.0)
-  description: Large Language Model tuning and training for application or enterprise use cases.
+  name: python-lit-ml
+  title: AI/ML Streamlit UI (v1.0)
+  description: Python 3.11 streamlit web application ready for AI/ML and Chatbot use cases.
   tags:
     - recommended
     - python
+    - streamlit
     - ai
     - llm
+    - rest
 spec:
   owner: user:default/glroland
-  type: model
+  type: service
 
   parameters:
-    - title: Describe the new LLM you are creating
+    - title: Describe the new web app / chatbot
       required:
         - component_id
         - owner
       properties:
         component_id:
-          title: Model Name
+          title: Service Name
           type: string
           description: Unique name of the component (no spaces)
           ui:field: EntityNamePicker
         description:
-          title: Description of the new large language model and its purpose
+          title: Description of the new business service and its purpose
           type: string
-          description: Help others understand what this model is for and the business purpose it supports.
+          description: Help others understand what this service is for and the business purpose it supports.
         owner:
           title: Developer Catalog Owner
           type: string
@@ -36,7 +38,7 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-    - title: Choose a GitHub location for the model creation artifacts
+    - title: Choose a GitHub location for the app
       required:
         - repoUrl
       properties:
@@ -66,7 +68,7 @@ spec:
           http_port: 8080
 
     - id: publish
-      name: Publish to GitHub
+      name: Publish
       action: publish:github
       input:
         allowedHosts: ["github.com"]
