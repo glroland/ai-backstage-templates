@@ -23,9 +23,9 @@ spec:
       labels:
         {{- include "ai-rhdh-customization-provider.selectorLabels" . | nindent 8 }}
     spec:
-      {{- if .Values.image.pullSecret }}
+      {{- if eq .Values.image.usePullSecret true }}
       imagePullSecrets:
-      - name: {{ .Values.image.pullSecret }}
+      - name: {{ include "ai-rhdh-customization-provider.fullname" . }}-pull-secret
       {{- end }}
       {{ if eq .Values.useServiceAccount true }}
       serviceAccountName: {{ include "ai-rhdh-customization-provider.fullname" . }}
@@ -42,6 +42,16 @@ spec:
           - containerPort: {{ .Values.image.port }}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /projects/static/home
+            name: home-config
+            readOnly: true
+          - mountPath: /projects/static/learning-paths
+            name: learning-paths-config
+            readOnly: true
+          - mountPath: /projects/static/tech-radar
+            name: tech-radar-config
+            readOnly: true
           readinessProbe:
             httpGet:
               path: /
@@ -71,6 +81,28 @@ spec:
             failureThreshold: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+      - configMap:
+          defaultMode: 511
+          items:
+          - key: data.json
+            path: data.json
+          name: {{ include "ai-rhdh-customization-provider.fullname" . }}-home
+        name: home-config
+      - configMap:
+          defaultMode: 511
+          items:
+          - key: data.json
+            path: data.json
+          name: {{ include "ai-rhdh-customization-provider.fullname" . }}-learning-paths
+        name: learning-paths-config
+      - configMap:
+          defaultMode: 511
+          items:
+          - key: data.json
+            path: data.json
+          name: {{ include "ai-rhdh-customization-provider.fullname" . }}-tech-radar
+        name: tech-radar-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

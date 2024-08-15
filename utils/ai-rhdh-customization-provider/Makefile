@@ -4,7 +4,7 @@ install:
 lint:
 	pylint src/*.py
 
-run: #lint
+run: lint
 	cd src && python app.py
 
 build:
