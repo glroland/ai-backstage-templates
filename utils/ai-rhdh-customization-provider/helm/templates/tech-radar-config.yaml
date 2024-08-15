@@ -12,39 +12,50 @@ data:
             "moved": 0,
             "ringId": "adopt",
             "date": "2020-08-06T00:00:00.000Z",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+            "description": "Standard technologies that are ready and approved for regular use by application teams"
             }
         ],
-        "key": "javascript",
-        "id": "javascript",
-        "title": "JavaScriptXXX XXX YYY",
+        "key": "python311",
+        "id": "python311",
+        "title": "Python 3.11",
         "quadrant": "languages",
         "links": [
             {
-            "url": "https://www.javascript.com/",
+            "url": "https://www.python.org/",
             "title": "Learn more"
-            },
-            {
-            "url": "https://www.typescriptlang.org/",
-            "title": "TypeScript"
             }
         ],
-        "description": "Hi my name is Jim Bob and I'm testing to see whether this refreshes in tech radar using config override.\n\n```ts\nconst x = \"3\";\n```\n"
+        "description": "Python programming language version 3.11"
         },
         {
         "timeline": [
             {
             "moved": -1,
-            "ringId": "adopt",
+            "ringId": "hold",
             "date": "2020-08-06T00:00:00.000Z",
-            "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+            "description": "AABASDSFDLooking to see where this is associated with in the diagram"
             }
         ],
-        "key": "typescript",
-        "id": "typescript",
-        "title": "TypeScript",
+        "key": "python-old",
+        "id": "python-old",
+        "title": "Python <= 3.10",
         "quadrant": "languages",
-        "description": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat"
+        "description": "Older Python Versions"
+        },
+        {
+        "timeline": [
+            {
+            "moved": -1,
+            "ringId": "trial",
+            "date": "2020-08-06T00:00:00.000Z",
+            "description": "Looking to see where this is associated with in the diagram"
+            }
+        ],
+        "key": "python312",
+        "id": "python312",
+        "title": "Python 3.12",
+        "quadrant": "languages",
+        "description": "Python programming language version 3.12"
         },
         {
         "timeline": [
@@ -52,7 +63,7 @@ data:
             "moved": 0,
             "ringId": "adopt",
             "date": "2020-08-06T00:00:00.000Z",
-            "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+            "description": "asdf"
             }
         ],
         "key": "java11",
