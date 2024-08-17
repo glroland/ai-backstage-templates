@@ -6,8 +6,49 @@ data:
   data.json: |-
     [
     {
-        "title": "AI Practice",
-        "isExpanded": true,
+        "title": "FREQUENTLY USED LAB TOOLS",
+        "isExpanded": false,
+        "links": [
+        {
+            "iconUrl": "/homepage/icons/icons8/github.png",
+            "label": "GitHub Repos",
+            "url": "https://github.com/glroland?tab=repositories"
+        },
+        {
+            "iconUrl": "/homepage/icons/podman_logo.svg",
+            "label": "Cloud IDE",
+            "url": "https://devspaces.apps.ocpbm.home.glroland.com/dashboard/#/workspaces"
+        },
+        {
+            "iconUrl": "/homepage/icons/quay.svg",
+            "label": "Container Registry",
+            "url": "https://registry.home.glroland.com"
+        },
+        {
+            "iconUrl": "/homepage/icons/argo-icon-color.svg",
+            "label": "Jenkins",
+            "url": "https://build.home.glroland.com"
+        },
+        {
+            "iconUrl": "/homepage/icons/argo-icon-color.svg",
+            "label": "OpenShift GitOps",
+            "url": "https://openshift-gitops-server-openshift-gitops.apps.ocpbm.home.glroland.com/applications"
+        },
+        {
+            "iconUrl": "/homepage/icons/podman_logo.svg",
+            "label": "OpenShift AI",
+            "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocpbm.home.glroland.com"
+        },
+        {
+            "iconUrl": "/homepage/icons/icons8/openshift.png",
+            "label": "OpenShift",
+            "url": "https://console-openshift-console.apps.ocpbm.home.glroland.com"
+        }
+        ]
+    },
+    {
+        "title": "AI PRACTICE",
+        "isExpanded": false,
         "links": [
         {
             "iconUrl": "/homepage/icons/icons8/github.png",
@@ -43,7 +84,7 @@ data:
     },
     {
         "title": "COLLABORATION",
-        "isExpanded": true,
+        "isExpanded": false,
         "links": [
         {
             "iconUrl": "/homepage/icons/icons8/github.png",
@@ -74,7 +115,7 @@ data:
     },
     {
         "title": "FOUNDATIONAL MODELS",
-        "isExpanded": true,
+        "isExpanded": false,
         "links": [
         {
             "iconUrl": "/homepage/icons/podman_logo.svg",
@@ -105,7 +146,7 @@ data:
     },
     {
         "title": "CREATE",
-        "isExpanded": true,
+        "isExpanded": false,
         "links": [
         {
             "iconUrl": "/homepage/icons/podman_logo.svg",
@@ -131,7 +172,7 @@ data:
     },
     {
         "title": "RUN",
-        "isExpanded": true,
+        "isExpanded": false,
         "links": [
         {
             "iconUrl": "/homepage/icons/icons8/openshift.png",
