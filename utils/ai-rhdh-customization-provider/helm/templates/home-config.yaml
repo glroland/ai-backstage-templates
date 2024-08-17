@@ -21,7 +21,7 @@ data:
         },
         {
             "iconUrl": "/homepage/icons/icons8/slack-new.png",
-            "label": "AI Practice Organizational Contacts",
+            "label": "AI Practice Organization",
             "url": "https://redhat.enterprise.slack.com/"
         },
         {
@@ -31,30 +31,20 @@ data:
         },
         {
             "iconUrl": "/homepage/icons/icons8/github.png",
-            "label": "AI Roles and Responsibilities",
+            "label": "AI Role Definitions",
             "url": "https://huggingface.co/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/tear-off-calendar.png",
             "label": "Shared Calendar",
             "url": "https://calendar.google.com"
-        },
-        {
-            "iconUrl": "/homepage/icons/icons8/youtube-play.png",
-            "label": "Policies and Ethical Use",
-            "url": "chat.google.com"
         }
         ]
     },
     {
-        "title": "COLLABORATE",
+        "title": "COLLABORATION",
         "isExpanded": true,
         "links": [
-        {
-            "iconUrl": "/homepage/icons/icons8/github.png",
-            "label": "GitHub",
-            "url": "https://github.com/glroland"
-        },
         {
             "iconUrl": "/homepage/icons/icons8/github.png",
             "label": "GitHub",
@@ -83,7 +73,7 @@ data:
         ]
     },
     {
-        "title": "FOUNDATIONS",
+        "title": "FOUNDATIONAL MODELS",
         "isExpanded": true,
         "links": [
         {
@@ -114,7 +104,7 @@ data:
         ]
     },
     {
-        "title": "BUILD",
+        "title": "CREATE",
         "isExpanded": true,
         "links": [
         {
