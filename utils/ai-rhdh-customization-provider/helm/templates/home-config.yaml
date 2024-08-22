@@ -27,7 +27,7 @@ data:
         {
             "iconUrl": "/homepage/icons/argo-icon-color.svg",
             "label": "Jenkins",
-            "url": "https://build.home.glroland.com"
+            "url": "http://build.home.glroland.com:8080/"
         },
         {
             "iconUrl": "/homepage/icons/argo-icon-color.svg",
@@ -187,7 +187,7 @@ data:
         {
             "iconUrl": "/homepage/icons/argo-icon-color.svg",
             "label": "Jenkins",
-            "url": "https://build.home.glroland.com"
+            "url": "http://build.home.glroland.com:8080/"
         },
         {
             "iconUrl": "/homepage/icons/quay.svg",
