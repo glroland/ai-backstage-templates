@@ -20,12 +20,12 @@ data:
             "url": "https://github.com/glroland?tab=repositories"
         },
         {
-            "iconUrl": "/homepage/icons/icons8/github.png",
+            "iconUrl": "/homepage/icons/icons8/system-task.png",
             "label": "Prompt Engineering",
             "url": "https://open-webui-openwebui.apps.ocpbm.home.glroland.com"
         },
         {
-            "iconUrl": "/homepage/icons/podman_logo.svg",
+            "iconUrl": "/homepage/icons/icons8/developerhub.png",
             "label": "Cloud IDE",
             "url": "https://devspaces.apps.ocpbm.home.glroland.com/dashboard/#/workspaces"
         },
@@ -56,12 +56,12 @@ data:
         "isExpanded": false,
         "links": [
         {
-            "iconUrl": "/homepage/icons/icons8/github.png",
+            "iconUrl": "/homepage/icons/icons8/security-checked.png",
             "label": "Getting Started",
             "url": "https://github.com/glroland"
         },
         {
-            "iconUrl": "/homepage/icons/icons8/github.png",
+            "iconUrl": "/homepage/icons/icons8/safe-out.png",
             "label": "AI Best Practices",
             "url": "https://github.com/glroland"
         },
@@ -71,12 +71,7 @@ data:
             "url": "https://redhat.enterprise.slack.com/"
         },
         {
-            "iconUrl": "/homepage/icons/icons8/tear-off-calendar.png",
-            "label": "Shared Calendar",
-            "url": "https://calendar.google.com"
-        },
-        {
-            "iconUrl": "/homepage/icons/icons8/github.png",
+            "iconUrl": "/homepage/icons/icons8/developerhub.png",
             "label": "AI Role Definitions",
             "url": "https://huggingface.co/"
         },
@@ -97,7 +92,7 @@ data:
             "url": "https://github.com/glroland"
         },
         {
-            "iconUrl": "/homepage/icons/icons8/github.png",
+            "iconUrl": "/homepage/icons/icons8/web.png",
             "label": "Hugging Face",
             "url": "https://huggingface.co/"
         },
@@ -154,7 +149,7 @@ data:
         "isExpanded": false,
         "links": [
         {
-            "iconUrl": "/homepage/icons/podman_logo.svg",
+            "iconUrl": "/homepage/icons/icons8/devspaces.svg",
             "label": "Cloud IDE",
             "url": "https://devspaces.apps.ocpbm.home.glroland.com/dashboard/#/workspaces"
         },
