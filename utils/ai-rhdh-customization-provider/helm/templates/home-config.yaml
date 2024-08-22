@@ -19,11 +19,11 @@ data:
             "label": "GitHub Repos",
             "url": "https://github.com/glroland?tab=repositories"
         },
-	{
+        {
             "iconUrl": "/homepage/icons/icons8/github.png",
             "label": "Prompt Engineering",
             "url": "https://open-webui-openwebui.apps.ocpbm.home.glroland.com"
-	},
+        },
         {
             "iconUrl": "/homepage/icons/podman_logo.svg",
             "label": "Cloud IDE",
