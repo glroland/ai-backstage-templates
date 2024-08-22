@@ -10,10 +10,20 @@ data:
         "isExpanded": true,
         "links": [
         {
+            "iconUrl": "/homepage/icons/icons8/openshift.png",
+            "label": "OpenShift",
+            "url": "https://console-openshift-console.apps.ocpbm.home.glroland.com"
+        },
+        {
             "iconUrl": "/homepage/icons/icons8/github.png",
             "label": "GitHub Repos",
             "url": "https://github.com/glroland?tab=repositories"
         },
+	{
+            "iconUrl": "/homepage/icons/icons8/github.png",
+            "label": "Prompt Engineering",
+            "url": "https://open-webui-openwebui.apps.ocpbm.home.glroland.com"
+	},
         {
             "iconUrl": "/homepage/icons/podman_logo.svg",
             "label": "Cloud IDE",
@@ -38,11 +48,6 @@ data:
             "iconUrl": "/homepage/icons/podman_logo.svg",
             "label": "OpenShift AI",
             "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocpbm.home.glroland.com"
-        },
-        {
-            "iconUrl": "/homepage/icons/icons8/openshift.png",
-            "label": "OpenShift",
-            "url": "https://console-openshift-console.apps.ocpbm.home.glroland.com"
         }
         ]
     },
