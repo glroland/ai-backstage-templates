@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ai-practice
+  description: "AI Practice Home"
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - ai
+spec:
+  type: service
+  lifecycle: production
+  owner: user:default/glroland
