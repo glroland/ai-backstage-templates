@@ -21,7 +21,7 @@ data:
         },
         {
             "iconUrl": "/homepage/icons/icons8/system-task.png",
-            "label": "Prompt Engineering",
+            "label": "Prompt Playground",
             "url": "https://open-webui-openwebui.apps.ocpbm.home.glroland.com"
         },
         {
