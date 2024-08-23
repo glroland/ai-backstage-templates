@@ -608,20 +608,20 @@ data:
     ],
     "quadrants": [
         {
-        "id": "models",
-        "name": "Models"
-        },
-        {
-        "id": "frameworks",
-        "name": "Frameworks"
-        },
-        {
         "id": "languages",
         "name": "Languages"
         },
         {
         "id": "storage",
         "name": "Storage"
+        },
+        {
+        "id": "models",
+        "name": "Models"
+        },
+        {
+        "id": "frameworks",
+        "name": "Frameworks"
         }
     ],
     "rings": [
