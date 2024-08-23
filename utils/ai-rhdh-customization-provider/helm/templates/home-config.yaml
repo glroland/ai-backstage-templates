@@ -58,17 +58,17 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/security-checked.png",
             "label": "Getting Started",
-            "url": "https://github.com/glroland"
+            "url": "https://backstage-developer-hub-devhub.apps.ocpbm.home.glroland.com/docs/default/component/ai-practice/getting_started/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/safe-out.png",
             "label": "AI Best Practices",
-            "url": "https://github.com/glroland"
+            "url": "https://backstage-developer-hub-devhub.apps.ocpbm.home.glroland.com/docs/default/component/ai-practice/best_practices/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/slack-new.png",
             "label": "AI Practice Organization",
-            "url": "https://redhat.enterprise.slack.com/"
+            "url": "/docs/default/component/ai-practice/ai_org/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/developerhub.png",

@@ -5,6 +5,7 @@ nav:
   - Getting Started: getting_started.md
   - AI Organization: ai_org.md
   - AI/ML Best Practices: best_practices.md
+  - AI Role Definitions: ai_roles.md
 
 plugins:
   - techdocs-core
