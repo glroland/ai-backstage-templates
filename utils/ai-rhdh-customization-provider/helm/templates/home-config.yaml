@@ -73,7 +73,7 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/developerhub.png",
             "label": "AI Role Definitions",
-            "url": "https://huggingface.co/"
+            "url": "https://backstage-developer-hub-devhub.apps.ocpbm.home.glroland.com/docs/default/component/ai-practice/ai_roles/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/tear-off-calendar.png",
