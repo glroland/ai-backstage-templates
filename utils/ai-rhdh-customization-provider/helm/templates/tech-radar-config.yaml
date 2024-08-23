@@ -113,19 +113,19 @@ data:
             "key": "openshift",
             "id": "openshift",
             "title": "Openshift 4+",
-            "quadrant": "frameworks"
+            "quadrant": "models"
         },
         {
             "key": "tekton",
             "id": "tekton",
             "title": "Tekton",
-            "quadrant": "frameworks"
+            "quadrant": "models"
         },
         {
             "key": "jenkins",
             "id": "jenkins",
             "title": "Jenkins",
-            "quadrant": "frameworks"
+            "quadrant": "models"
         }
     ],
     "quadrants": [
