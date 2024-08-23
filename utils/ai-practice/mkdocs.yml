@@ -2,6 +2,9 @@ site_name: 'AI Practice'
 
 nav:
   - Home: index.md
+  - Getting Started: getting_started.md
+  - AI Organization: ai_org.md
+  - AI/ML Best Practices: best_practices.md
 
 plugins:
   - techdocs-core
