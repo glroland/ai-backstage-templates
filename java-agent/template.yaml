@@ -25,15 +25,20 @@ spec:
           type: string
           description: Unique name of the component
           ui:field: EntityNamePicker
+        description:
+          title: Description
+          type: string
+          description: Describe the Generative AI use case that this supports.
         java_package_name:
           title: Java Package Name
           type: string
           description: Name for the java package. eg (io.backstage.blah)
           default: com.glroland.xxx
-        description:
-          title: Description
+        ocp_project:
+          title: OpenShift Project
           type: string
-          description: Describe the Generative AI use case that this supports.
+          description: Where the component should initially be deployed to.
+          default: sandbox
         owner:
           title: Owner
           type: string
@@ -43,11 +48,6 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-        ocp_project:
-          title: OpenShift Project
-          type: string
-          description: Where the component should initially be deployed to.
-          default: sandbox
     - title: Choose a GitHub location for the service
       required:
         - repo
