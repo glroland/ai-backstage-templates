@@ -42,6 +42,11 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        ocp_project:
+          title: OpenShift Project
+          type: string
+          description: Where the component should initially be deployed to.
+          default: sandbox
     - title: Choose a GitHub location for the service
       required:
         - repo
@@ -62,6 +67,26 @@ spec:
               type: string
               description: Your SCM host organization/group
               default: glroland
+    - title: Choose your container registry for the service
+      required:
+        - registry
+      properties:
+        repo:
+          title: Registry
+          type: object
+          properties:
+            host:
+              title: Host
+              type: string
+              description: Your container registry
+              default: registry.home.glroland.com
+              enum:
+                - registry.home.glroland.com
+            org:
+              title: Organization
+              type: string
+              description: Your registry organization
+              default: sandbox
 
   steps:
     - id: template

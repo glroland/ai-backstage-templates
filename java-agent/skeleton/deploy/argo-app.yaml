@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${{values.artifact_id}}
+spec:
+  destination:
+    name: ''
+    namespace: ${{values.ocp_project}}
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'deploy/helm'
+    repoURL: 'https://${{ values.repo.host }}/${{ values.repo.owner }}/${{ values.component_id }}'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
