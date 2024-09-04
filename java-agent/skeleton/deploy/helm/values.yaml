@@ -7,8 +7,8 @@ serviceAccount:
   name: ""
 
 image:
-  repository: ${{values.registry.host}}/${{values.registry.org}}/
-  name: {{ include "${{values.artifact_id}}.fullname" . }}
+  repository: ${{parameters.registry.host}}/${{values.registry.org}}/
+  name: ${{values.artifact_id}}
   tag: 1
   usePullSecret: true
   pullPolicy: IfNotPresent
