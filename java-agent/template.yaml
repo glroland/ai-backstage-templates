@@ -72,7 +72,7 @@ spec:
       required:
         - registry
       properties:
-        repo:
+        registry:
           title: Registry
           type: object
           properties:
@@ -83,6 +83,7 @@ spec:
               default: registry.home.glroland.com
               enum:
                 - registry.home.glroland.com
+                - quay.io
             org:
               title: Organization
               type: string
