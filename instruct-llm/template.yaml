@@ -33,6 +33,7 @@ spec:
           type: string
           description: Owner of the component in Red Hat Develper Hub
           ui:field: OwnerPicker
+          default: glroland
           ui:options:
             allowedKinds:
               - Group

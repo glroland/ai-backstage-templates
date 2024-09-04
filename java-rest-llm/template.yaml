@@ -38,6 +38,7 @@ spec:
           type: string
           description: Owner of the component
           ui:field: OwnerPicker
+          default: glroland
           ui:options:
             allowedKinds:
               - Group

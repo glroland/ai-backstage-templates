@@ -34,6 +34,7 @@ spec:
           type: string
           description: Owner of the component in Red Hat Develper Hub
           ui:field: OwnerPicker
+          default: glroland
           ui:options:
             allowedKinds:
               - Group
@@ -45,10 +46,20 @@ spec:
           title: Git Repository Location
           type: string
           ui:field: RepoUrlPicker
+          default: github.com
           ui:options:
             allowedHosts:
               - github.com
-
+        owner:
+          title: Repo Owner
+          type: string
+          description: Your SCM host organization/group
+          default: glroland
+        repository:
+          title: Repoository
+          type: string
+          description: Your SCM host organization/group
+          default: ${{ parameters.component_id }}
   steps:
     - id: template
       name: Fetch Skeleton + Template

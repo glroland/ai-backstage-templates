@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: ai-backstage-templates
+  description: A collection of Backstage Templates for AI development
+spec:
+  type: url
+  targets:
+     - instruct-llm/template.yaml
+     - java-agent/template.yaml
+     - java-rest-llm/template.yaml
+     - java-summarizer/template.yaml
+     - python-lit-ml/template.yaml
+     - python-rest-ml/template.yaml
