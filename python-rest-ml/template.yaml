@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: python-rest-ml
-  title: AI/ML REST Python Service (v1.0)
+  title: AI/ML REST Python Service (v1.1)
   description: Python 3.11 web application ready for Data Science and AI/ML use cases.
   tags:
     - recommended
