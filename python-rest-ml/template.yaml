@@ -51,12 +51,12 @@ spec:
             allowedHosts:
               - github.com
         owner:
-          title: Repo Owner
+          title: Owner
           type: string
           description: Your SCM host organization/group
           default: glroland
         repository:
-          title: Repoository
+          title: Repository
           type: string
           description: Your SCM host organization/group
           default: ${{ parameters.component_id }}
