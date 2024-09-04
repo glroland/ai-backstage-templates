@@ -44,7 +44,7 @@ spec:
           type: string
           description: Owner of the component
           ui:field: OwnerPicker
-          default: glroland
+          default: user:default/glroland
           ui:options:
             allowedKinds:
               - Group
