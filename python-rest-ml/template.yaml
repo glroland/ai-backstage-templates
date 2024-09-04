@@ -64,7 +64,7 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
-        copyWithoutRender:
+        copyWithoutTemplating:
           - .github/workflows/*
         values:
           component_id: ${{ parameters.component_id }}
@@ -79,10 +79,9 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ["github.com"]
         defaultBranch: main
         protectDefaultBranch: false
-        description: This is ${{ parameters.component_id }}
+        description: This is ${{ parameters.component_id }}.  ${{ parameters.description }}
         repoUrl: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}
         repoVisibility: public    # or 'internal' or 'private'
 
