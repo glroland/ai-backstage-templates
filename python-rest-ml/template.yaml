@@ -40,26 +40,24 @@ spec:
               - Group
     - title: Choose a GitHub location for the service
       required:
-        - repoUrl
+        - repo
       properties:
-        repoUrl:
-          title: Git Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          default: github.com
-          ui:options:
-            allowedHosts:
-              - github.com
-        owner:
-          title: Owner
-          type: string
-          description: Your SCM host organization/group
-          default: glroland
-        repository:
-          title: Repository
-          type: string
-          description: Your SCM host organization/group
-          default: ${{ parameters.component_id }}
+        repo:
+          title: Repository Location
+          type: object
+          properties:
+            host:
+              title: Repo Host
+              type: string
+              description: Your SCM host
+              default: github.com
+              enum:
+                - github.com
+            owner:
+              title: Repo Owner
+              type: string
+              description: Your SCM host organization/group
+              default: glroland
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -74,7 +72,7 @@ spec:
           artifact_id: ${{ parameters.component_id }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ parameters.owner }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          destination: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}
           http_port: 8080
 
     - id: publish
@@ -85,7 +83,7 @@ spec:
         defaultBranch: main
         protectDefaultBranch: false
         description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}
         repoVisibility: public    # or 'internal' or 'private'
 
     - id: register
@@ -107,4 +105,4 @@ spec:
         entityRef: ${{ steps.register.output.entityRef }}
       - title: OpenShift AI
         icon: chat
-        url: https://rhods-dashboard-redhat-ods-applications.apps.ocpbm.home.glroland.com/projects
+        url: https://rhods-dashboard-redhat-ods-applications.apps.ocpprod.home.glroland.com/projects
