@@ -1,0 +1,87 @@
+pipeline 
+{
+   agent any
+   
+   options 
+   {
+      disableConcurrentBuilds()
+      buildDiscarder(logRotator(numToKeepStr: '3'))
+      timestamps()
+   }
+
+   tools 
+   {
+      jdk 'java-21'
+      maven 'Maven-3.9.6'
+   }
+
+   stages
+   {
+      stage('Prepare') 
+      {
+         steps 
+         {
+            sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+
+            git branch: 'main', 
+                    url: 'https://${{ values.repo.host }}/${{ values.repo.owner }}/${{ values.component_id }}.git'
+         }
+      }
+
+      stage('Build ${{values.artifact_id}}') 
+      {
+         steps 
+         {
+            sh './mvnw --batch-mode clean package'
+            step(followSymlinks: false, artifacts: 'target/${{values.artifact_id}}-1.0.0.jar', $class: 'ArtifactArchiver')
+         }
+      }
+
+      stage('Create Docker Image for ${{values.artifact_id}}') 
+      {
+         steps 
+         {
+            sh 'docker build . --tag ${{values.artifact_id}}:$BUILD_NUMBER'
+            sh 'docker save ${{values.artifact_id}}:$BUILD_NUMBER > ${{values.artifact_id}}-dockerimage.tar'
+            step(followSymlinks: false, artifacts: '${{values.artifact_id}}-dockerimage.tar', $class: 'ArtifactArchiver')
+            sh 'docker rmi ${{values.artifact_id}}:$BUILD_NUMBER'
+         }
+      }
+
+      stage('Scan for OWASP Issues in Dependencies') 
+      {
+         steps 
+         {
+            dependencyCheck additionalArguments: ''' 
+                       -o "./" 
+                       -s "./"
+                       -f "ALL" 
+                       --prettyPrint''', odcInstallation: 'OWASP Dependency-Check'
+   
+            dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+            step(followSymlinks: false, artifacts: '**/dependency-check-report.*', $class: 'ArtifactArchiver')
+         }
+      }
+
+      stage('Reload then push images to container registry') 
+      {
+         steps 
+         {
+            script 
+            {
+               docker.withRegistry('https://${{values.registry.host}}/', 'quay') 
+               {
+                  sh 'docker load -i ${{values.artifact_id}}-dockerimage.tar'
+                  sh 'docker tag ${{values.artifact_id}}:$BUILD_NUMBER ${{values.registry.host}}/${{values.registry.org}}/${{values.artifact_id}}:$BUILD_NUMBER'
+                  sh 'docker rmi ${{values.artifact_id}}:$BUILD_NUMBER'
+                  sh 'docker push ${{values.registry.host}}/${{values.registry.org}}/${{values.artifact_id}}:$BUILD_NUMBER'
+                  sh 'docker rmi ${{values.registry.host}}/${{values.registry.org}}/${{values.artifact_id}}:$BUILD_NUMBER'
+               }
+            }
+         }
+      }
+   }
+}
