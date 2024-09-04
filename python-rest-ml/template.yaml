@@ -82,7 +82,7 @@ spec:
         defaultBranch: main
         protectDefaultBranch: false
         description: This is ${{ parameters.component_id }}.  ${{ parameters.description }}
-        repoUrl: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}
+        repoUrl: "${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}"
         repoVisibility: public    # or 'internal' or 'private'
 
     - id: register
