@@ -27,7 +27,7 @@ pipeline
                 '''
 
             git branch: 'main', 
-                    url: 'https://${{ values.repo.host }}/${{ values.repo.owner }}/${{ values.component_id }}.git'
+                    url: '${{ values.destination }}.git'
          }
       }
 
@@ -72,13 +72,13 @@ pipeline
          {
             script 
             {
-               docker.withRegistry('https://${{values.registry.host}}/', 'quay') 
+               docker.withRegistry('https://${{values.registry_host}}/', 'quay') 
                {
                   sh 'docker load -i ${{values.artifact_id}}-dockerimage.tar'
-                  sh 'docker tag ${{values.artifact_id}}:$BUILD_NUMBER ${{values.registry.host}}/${{values.registry.org}}/${{values.artifact_id}}:$BUILD_NUMBER'
+                  sh 'docker tag ${{values.artifact_id}}:$BUILD_NUMBER ${{registry_host}}/${{values.registry_org}}/${{values.artifact_id}}:$BUILD_NUMBER'
                   sh 'docker rmi ${{values.artifact_id}}:$BUILD_NUMBER'
-                  sh 'docker push ${{values.registry.host}}/${{values.registry.org}}/${{values.artifact_id}}:$BUILD_NUMBER'
-                  sh 'docker rmi ${{values.registry.host}}/${{values.registry.org}}/${{values.artifact_id}}:$BUILD_NUMBER'
+                  sh 'docker push ${{values.registry_host}}/${{values.registry_org}}/${{values.artifact_id}}:$BUILD_NUMBER'
+                  sh 'docker rmi ${{values.registry_host}}/${{values.registry_org}}/${{values.artifact_id}}:$BUILD_NUMBER'
                }
             }
          }
