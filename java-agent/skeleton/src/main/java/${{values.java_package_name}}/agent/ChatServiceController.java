@@ -23,8 +23,7 @@ public class ChatServiceController
     private ChatLanguageModelFactory chatLanguageModelFactory;
 
     @PostMapping("/chat")
-    public String chat(@RequestParam(value = "userMessage", defaultValue = "What is the current date and time?") 
-                        String userMessage)
+    public String chat(@RequestParam(value = "userMessage") String userMessage)
     {
         ChatLanguageModel chatLanguageModel = chatLanguageModelFactory.createDefault();
 
