@@ -8,16 +8,20 @@ metadata:
     app.kubernetes.io/part-of: ${{values.artifact_id}}-app
   annotations:
     app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"${{values.artifact_id}}-deploy"}]'
-
+    backstage.io/techdocs-ref: dir:.
+    jenkins.io/job-full-name: '${{values.artifact_id | dump}}'
+    argocd/app-name: ${{values.artifact_id | dump}}
+    argocd/instance-name: 'argoInstance'
+    quay.io/repository-slug: '${{ values.repo.owner }}/${{values.artifact_id}}'
   links:
-    - url: 'https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/load-factory?url=https://github.com/${{values.destination.owner + "/" + values.destination.repo}}.git'
+    - url: 'https://devspaces.apps.ocpprod.home.glroland.com/#https://github.com/${{values.destination.owner + "/" + values.destination.repo}}.git'
       title: 'Code in DevSpaces'
       icon: catalog
       type: ide
   tags:
-    - python
     - java
     - ai
+    - agent
     - llm
 spec:
   type: service
