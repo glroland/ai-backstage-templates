@@ -7,7 +7,7 @@ EXPOSE 8080/tcp
 WORKDIR /projects
 
 # Copy the content of the local src directory to the working directory
-COPY ./target/${{values.artifact_id}}-0.0.1-SNAPSHOT.jar  .
+COPY ./target/${{values.artifact_id}}-1.0.0.jar  .
 
 # Specify the command to run on container start
-CMD [ "java", "-jar", "${{values.artifact_id}}-0.0.1-SNAPSHOT.jar" ]
+CMD [ "java", "-jar", "${{values.artifact_id}}-1.0.0.jar" ]
