@@ -26,7 +26,7 @@ pipeline
                     echo "M2_HOME = ${M2_HOME}"
                 '''
 
-            git branch: 'main', 
+            git branch: 'master', 
                     url: '${{ values.destination }}.git'
          }
       }
