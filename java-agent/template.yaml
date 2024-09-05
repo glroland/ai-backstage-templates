@@ -34,11 +34,6 @@ spec:
           type: string
           description: Name for the java package. eg (io.backstage.blah)
           default: com.glroland.xxx
-        ocp_project:
-          title: OpenShift Project
-          type: string
-          description: Where the component should initially be deployed to.
-          default: sandbox
         owner:
           title: Owner
           type: string
@@ -68,28 +63,30 @@ spec:
               type: string
               description: Your SCM host organization/group
               default: glroland
-    - title: Choose your container registry for the service
+    - title: Choose your deployment parameters for the component
       required:
-        - registry
+        - registry_host
+        - registry_org
+        - ocp_project
       properties:
-        registry:
-          title: Registry
-          type: object
-          properties:
-            host:
-              title: Host
-              type: string
-              description: Your container registry
-              default: registry.home.glroland.com
-              enum:
-                - registry.home.glroland.com
-                - quay.io
-            org:
-              title: Organization
-              type: string
-              description: Your registry organization
-              default: sandbox
-
+        registry_host:
+          title: Container Registry Host
+          type: string
+          description: Your container registry host
+          default: registry.home.glroland.com
+          enum:
+            - registry.home.glroland.com
+            - quay.io
+        registry_org:
+          title: Container Registry Organization
+          type: string
+          description: Your registry organization
+          default: sandbox
+        ocp_project:
+          title: OpenShift Project
+          type: string
+          description: Where the component should initially be deployed to.
+          default: sandbox
   steps:
     - id: template
       name: Fetch Skeleton + Template
