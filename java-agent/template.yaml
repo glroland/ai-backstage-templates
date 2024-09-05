@@ -115,6 +115,8 @@ spec:
       input:
         description: This is ${{ parameters.component_id }}.  ${{ parameters.description }}
         repoUrl: "${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}"
+        protectDefaultBranch: false
+        repoVisibility: public    # or 'internal' or 'private'
 
     - id: register
       name: Register
