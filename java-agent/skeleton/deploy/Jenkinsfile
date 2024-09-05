@@ -75,7 +75,7 @@ pipeline
                docker.withRegistry('https://${{values.registry_host}}/', 'quay') 
                {
                   sh 'docker load -i ${{values.artifact_id}}-dockerimage.tar'
-                  sh 'docker tag ${{values.artifact_id}}:$BUILD_NUMBER ${{registry_host}}/${{values.registry_org}}/${{values.artifact_id}}:$BUILD_NUMBER'
+                  sh 'docker tag ${{values.artifact_id}}:$BUILD_NUMBER ${{values.registry_host}}/${{values.registry_org}}/${{values.artifact_id}}:$BUILD_NUMBER'
                   sh 'docker rmi ${{values.artifact_id}}:$BUILD_NUMBER'
                   sh 'docker push ${{values.registry_host}}/${{values.registry_org}}/${{values.artifact_id}}:$BUILD_NUMBER'
                   sh 'docker rmi ${{values.registry_host}}/${{values.registry_org}}/${{values.artifact_id}}:$BUILD_NUMBER'
