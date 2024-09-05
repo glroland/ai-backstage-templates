@@ -103,6 +103,9 @@ spec:
           owner: ${{ parameters.owner }}
           destination: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}
           http_port: 8080
+          registry_host: ${{ parameters.registry_host }}
+          registry_org: ${{ parameters.registry_org }}
+          ocp_project: ${{ parameters.ocp_project }}
 
     - id: publish
       name: Publish

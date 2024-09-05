@@ -7,7 +7,7 @@ serviceAccount:
   name: ""
 
 image:
-  repository: ${{values.registry_host}}/${{registry_org}}/
+  repository: ${{values.registry_host}}/${{values.registry_org}}/
   name: ${{values.artifact_id}}
   tag: 1
   usePullSecret: true
