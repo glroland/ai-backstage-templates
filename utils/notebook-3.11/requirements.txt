@@ -1,0 +1,36 @@
+# Datascience and useful extensions
+boto3
+kafka-python
+matplotlib
+numpy
+pandas
+plotly
+scikit-learn
+scipy
+skl2onnx
+onnxconverter-common # Required for skl2onnx, as upgraded version is not compatible with protobuf
+codeflare-sdk
+memray  # any version above this would cause issue with rich package
+# DB connectors
+psycopg
+# JupyterLab packages
+odh-elyra
+jupyterlab # Wait on upgrade till plugins are ready
+jupyter-bokeh # Upgrade would bring in jupyterlab 4
+jupyter-server
+jupyter-server-proxy # Upgrade would bring in jupyterlab 4
+jupyter-server-terminals
+jupyterlab-git
+jupyterlab-lsp
+jupyterlab-widgets
+jupyter-resource-usage
+nbdime
+nbgitpuller
+# pycodestyle is dependency of below packages 
+# and to achieve compatible of pycodestyle with python-lsp-server[all]
+# pinned the below packages
+autopep8
+flake8
+# Base packages
+wheel
+setuptools
