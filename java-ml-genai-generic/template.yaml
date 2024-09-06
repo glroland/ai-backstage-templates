@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: java-agent
-  title: GenAI Agent Microservice (v1.2)
+  name: java-ml-genai-generic
+  title: Java-based Generative AI Catch All (v2.0)
   description: Generative AI Agent microservice for adapting a trained LLM with intelligence around a use case.  Developed in Java with Langchain4j.
   tags:
     - recommended
