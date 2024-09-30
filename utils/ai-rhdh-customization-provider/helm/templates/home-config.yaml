@@ -202,18 +202,8 @@ data:
         "links": [
         {
             "iconUrl": "/homepage/icons/icons8/openshift.png",
-            "label": "OpenShift (BM)",
-            "url": "https://console-openshift-console.apps.ocpprod.home.glroland.com"
-        },
-        {
-            "iconUrl": "/homepage/icons/icons8/openshift.png",
             "label": "OpenShift (Prod)",
             "url": "https://console-openshift-console.apps.ocpprod.home.glroland.com"
-        },
-        {
-            "iconUrl": "/homepage/icons/icons8/openshift.png",
-            "label": "OpenShift (Hub)",
-            "url": "https://console-openshift-console.apps.ocphub.home.glroland.com"
         }
         ]
     }
