@@ -5,12 +5,14 @@ metadata:
   labels:
     {{- include "ai-rhdh-customization-provider.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
-  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
   ports:
-    - port: {{ .Values.service.port }}
+    - protocol: TCP
+      port: {{ .Values.service.port }}
       targetPort: {{ .Values.image.port }}
-      protocol: TCP
+  internalTrafficPolicy: Cluster
+  type: {{ .Values.service.type }}
   sessionAffinity: None
   selector:
     {{- include "ai-rhdh-customization-provider.selectorLabels" . | nindent 4 }}
