@@ -28,7 +28,7 @@ COPY utils ./utils/
 USER root
 
 # Install usefull OS packages
-RUN dnf install -y openshift-clients jq postgresql zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
+RUN dnf install -y jq postgresql zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
 
 # Disable announcement plugin of jupyterlab
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
@@ -41,6 +41,25 @@ ENV SHELL /bin/zsh
 ENV HISTFILE /opt/app-root/src/.zsh_history
 ENV HISTSIZE 1000
 ENV SAVEHIST 1000
+
+# Install kubernetes clients
+RUN curl -o /tmp/oc.tgz https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable-4.17/openshift-client-linux.tar.gz && \
+    tar -zxf /tmp/oc.tgz --directory /tmp && \
+    rm -f /tmp/oc.tgz && \
+    mv /tmp/oc /usr/local/bin/oc && \
+    chmod 755 /usr/local/bin/oc && \
+    rm -f /tmp/oc.tgz && \
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
+    mv kubectl /usr/local/bin/kubectl && \
+    chmod 755 /usr/local/bin/kubectl && \
+    curl -o /tmp/helm.tgz https://get.helm.sh/helm-v3.15.3-linux-amd64.tar.gz && \
+    tar -zxf /tmp/helm.tgz --directory /tmp && \
+    rm -f /tmp/helm.tgz && \
+    mv /tmp/linux-amd64/helm /usr/local/bin/helm && \
+    rm -rf /tmp/linux-amd64 && \
+    chmod 755 /usr/local/bin/helm && \
+    curl -L -o /usr/local/bin/odo https://developers.redhat.com/content-gateway/file/pub/openshift-v4/clients/odo/v3.16.1/odo-linux-amd64 && \
+    chmod 755 /usr/local/bin/odo
 
 # setup path for runtime configuration
 RUN mkdir /opt/app-root/runtimes && \
