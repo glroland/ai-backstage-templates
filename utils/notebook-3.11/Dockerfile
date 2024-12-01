@@ -41,6 +41,7 @@ ENV HOME /opt/app-root/src
 # Registry search order
 RUN mkdir -p /opt/app-root/src/.config/containers
 COPY registries.conf /opt/app-root/src/.config/containers/registries.conf
+COPY zshrc /opt/app-root/src/.zshrc
 
 # Python virtual environment
 RUN python3.11 -m venv $HOME/venv
@@ -74,9 +75,8 @@ RUN mkdir /opt/app-root/runtimes && \
 # Copy Elyra runtime-images definitions and set the version
 COPY runtime-images/ /opt/app-root/share/jupyter/metadata/runtime-images/
 
-COPY zshrc /opt/app-root/src/.zshrc
+ENV SHELL /bin/zsh
 WORKDIR /opt/app-root/src
-SHELL ["/bin/zsh", "-c"] 
 
 # Replace Notebook's launcher, "(ipykernel)" with Python's version 3.x.y
 RUN sed -i -e "s/Python.*/$(python --version | cut -d '.' -f-2)\",/" /opt/app-root/share/jupyter/kernels/python3/kernel.json
