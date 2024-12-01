@@ -41,7 +41,6 @@ ENV SHELL /bin/zsh
 ENV HISTFILE /opt/app-root/src/.zsh_history
 ENV HISTSIZE 1000
 ENV SAVEHIST 1000
-ENV PS1 "'%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%~%F{red}]%(?.%F{green}.%F{red})>%b%f '"
 
 # setup path for runtime configuration
 RUN mkdir /opt/app-root/runtimes && \

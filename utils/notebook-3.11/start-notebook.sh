@@ -33,16 +33,18 @@ if [ -n "${NOTEBOOK_ARGS}" ]; then
     NOTEBOOK_PROGRAM_ARGS+=${NOTEBOOK_ARGS}
 fi
 
+# Shell Style
+export PS1='%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%~%F{red}]%(?.%F{green}.%F{red})>%b%f '
+
 # Ensure containers dir exists
 if [ ! -d "$HOME/.config/containers" ]
 then
   mkdir -p "$HOME/.config/containers"
 fi
-(echo 'unqualified-search-registries = [';echo '  "registry.home.glroland.com",';echo '  "registry.access.redhat.com",';echo '  "registry.redhat.io",';echo '  "docker.io"'; echo ']'; echo 'short-name-mode = "pe
-rmissive"') > ${HOME}/.config/containers/registries.conf
+(echo 'unqualified-search-registries = [';echo '  "registry.home.glroland.com",';echo '  "registry.access.redhat.com",';echo '  "registry.redhat.io",';echo '  "docker.io"'; echo ']'; echo 'short-name-mode = "permissive"') > $HOME/.config/containers/registries.conf
 
 # Path
-echo "PATH=$PATH:." > ${HOME}/.zshrc
+echo "PATH=$PATH:." > $HOME/.zshrc
 
 # Python virtual environment
 if [ ! -f ${HOME}/venv/bin/activate ]
