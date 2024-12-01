@@ -47,7 +47,9 @@ RUN curl -o /tmp/oc.tgz https://mirror.openshift.com/pub/openshift-v4/clients/oc
     rm -rf /tmp/linux-amd64 && \
     chmod 755 /usr/local/bin/helm && \
     curl -L -o /usr/local/bin/odo https://developers.redhat.com/content-gateway/file/pub/openshift-v4/clients/odo/v3.16.1/odo-linux-amd64 && \
-    chmod 755 /usr/local/bin/odo
+    chmod 755 /usr/local/bin/odo && \
+    curl -L -o /usr/local/bin/mc https://dl.min.io/client/mc/release/linux-amd64/mc && \
+    chmod 755 /usr/local/bin/mc
 
 # Disable announcement plugin of jupyterlab
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
