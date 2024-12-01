@@ -50,6 +50,7 @@ echo "PATH=$PATH:." > $HOME/.zshrc
 if [ ! -f ${HOME}/venv/bin/activate ]
 then
   python -m venv $HOME/venv
+  $HOME/venv/bin/python/python -m pip install -U ipykernel
 fi
 echo "source $HOME/venv/bin/activate" >> $HOME/.zshrc
 
