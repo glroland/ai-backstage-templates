@@ -91,8 +91,6 @@ RUN mkdir /opt/app-root/runtimes && \
 COPY runtime-images/ /opt/app-root/share/jupyter/metadata/runtime-images/
 
 # Configure Kernels
-RUN mkdir -p /opt/app-root/src/.local/share/jupyter/kernels/
-COPY kernels/ /opt/app-root/src/.local/share/jupyter/kernels/
 # Replace Notebook's launcher, "(ipykernel)" with Python's version 3.x.y
 RUN sed -i -e "s/Python.*/$(python --version | cut -d '.' -f-2)\",/" /opt/app-root/share/jupyter/kernels/python3/kernel.json
 
