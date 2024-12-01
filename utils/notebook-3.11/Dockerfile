@@ -71,9 +71,11 @@ RUN mkdir /opt/app-root/runtimes && \
 # Copy Elyra runtime-images definitions and set the version
 COPY runtime-images/ /opt/app-root/share/jupyter/metadata/runtime-images/
 
-WORKDIR /opt/app-root/src
-
+# Configure Kernels
+COPY kernels/ /opt/app-root/src/.local/share/jupyter/kernels/
 # Replace Notebook's launcher, "(ipykernel)" with Python's version 3.x.y
 RUN sed -i -e "s/Python.*/$(python --version | cut -d '.' -f-2)\",/" /opt/app-root/share/jupyter/kernels/python3/kernel.json
+
+WORKDIR /opt/app-root/src
 
 ENTRYPOINT ["start-notebook.sh"]
