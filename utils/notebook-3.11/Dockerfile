@@ -28,7 +28,7 @@ COPY utils ./utils/
 USER root
 
 # Install usefull OS packages
-RUN dnf install -y jq postgresql-client zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
+RUN dnf install -y jq postgresql zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
 
 # Disable announcement plugin of jupyterlab
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
