@@ -51,7 +51,7 @@ if [ ! -f ${HOME}/venv/bin/activate ]
 then
   python -m venv $HOME/venv
   $HOME/venv/bin/python -m pip install -U ipykernel
-  $HOME/venv/bin/python -m ipykernel install --user
+  $HOME/venv/bin/python -m ipykernel install --user --name venv
 fi
 echo "source $HOME/venv/bin/activate" >> $HOME/.zshrc
 
