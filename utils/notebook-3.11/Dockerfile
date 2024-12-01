@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/python-311:latest
+FROM registry.redhat.io/ubi9/python-311:9.5-1731639064
 
 LABEL name="ai-backstage-templates-notebook-3.11" \
     summary="glroland notebook for openshift ai development work" \
@@ -11,6 +11,8 @@ LABEL name="ai-backstage-templates-notebook-3.11" \
     io.openshift.build.image="registry.home.glroland.com/paas/notebook-3.11"
 
 WORKDIR /opt/app-root/bin
+
+ENV HOME /opt/app-root/bin
 
 # Install Python packages and Jupyterlab extensions
 COPY requirements.txt ./
