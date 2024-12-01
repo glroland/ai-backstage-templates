@@ -37,14 +37,11 @@ RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
 USER 1001
 
 ENV HOME /opt/app-root/src
-
-# Registry search order
-RUN mkdir -p /opt/app-root/src/.config/containers
-COPY registries.conf /opt/app-root/src/.config/containers/registries.conf
-COPY zshrc /opt/app-root/src/.zshrc
-
-# Python virtual environment
-RUN python3.11 -m venv $HOME/venv
+ENV SHELL /bin/zsh
+ENV HISTFILE /opt/app-root/src/.zsh_history
+ENV HISTSIZE 1000
+ENV SAVEHIST 1000
+ENV PS1 "'%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%~%F{red}]%(?.%F{green}.%F{red})>%b%f '"
 
 # setup path for runtime configuration
 RUN mkdir /opt/app-root/runtimes && \
@@ -75,7 +72,6 @@ RUN mkdir /opt/app-root/runtimes && \
 # Copy Elyra runtime-images definitions and set the version
 COPY runtime-images/ /opt/app-root/share/jupyter/metadata/runtime-images/
 
-ENV SHELL /bin/zsh
 WORKDIR /opt/app-root/src
 
 # Replace Notebook's launcher, "(ipykernel)" with Python's version 3.x.y
