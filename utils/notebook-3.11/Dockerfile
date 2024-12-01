@@ -30,18 +30,6 @@ USER root
 # Install usefull OS packages
 RUN dnf install -y jq postgresql zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
 
-# Disable announcement plugin of jupyterlab
-RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
-
-# Other apps and tools installed as default user
-USER 1001
-
-ENV HOME /opt/app-root/src
-ENV SHELL /bin/zsh
-ENV HISTFILE /opt/app-root/src/.zsh_history
-ENV HISTSIZE 1000
-ENV SAVEHIST 1000
-
 # Install kubernetes clients
 RUN curl -o /tmp/oc.tgz https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable-4.17/openshift-client-linux.tar.gz && \
     tar -zxf /tmp/oc.tgz --directory /tmp && \
@@ -60,6 +48,18 @@ RUN curl -o /tmp/oc.tgz https://mirror.openshift.com/pub/openshift-v4/clients/oc
     chmod 755 /usr/local/bin/helm && \
     curl -L -o /usr/local/bin/odo https://developers.redhat.com/content-gateway/file/pub/openshift-v4/clients/odo/v3.16.1/odo-linux-amd64 && \
     chmod 755 /usr/local/bin/odo
+
+# Disable announcement plugin of jupyterlab
+RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
+
+# Other apps and tools installed as default user
+USER 1001
+
+ENV HOME /opt/app-root/src
+ENV SHELL /bin/zsh
+ENV HISTFILE /opt/app-root/src/.zsh_history
+ENV HISTSIZE 1000
+ENV SAVEHIST 1000
 
 # setup path for runtime configuration
 RUN mkdir /opt/app-root/runtimes && \
