@@ -28,7 +28,8 @@ COPY utils ./utils/
 USER root
 
 # Install usefull OS packages
-RUN dnf install -y jq postgresql zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
+RUN subscription-manager repos --enable="rhocp-4.17-for-rhel-9-x86_64-rpms"
+RUN dnf install -y openshift-clients jq postgresql zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
 
 # Disable announcement plugin of jupyterlab
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
