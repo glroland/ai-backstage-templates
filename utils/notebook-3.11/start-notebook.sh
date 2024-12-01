@@ -55,6 +55,11 @@ then
 fi
 echo "source $HOME/venv/bin/activate" >> $HOME/.zshrc
 
+# Register data connection with minio client
+if [[ -z "$AWS_S3_ENDPOINT" ]]; then
+  mc alias set data $AWS_S3_ENDPOINT $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY
+fi
+
 # Start the JupyterLab notebook
 start_process jupyter lab ${NOTEBOOK_PROGRAM_ARGS} \
     --ServerApp.ip=0.0.0.0 \
