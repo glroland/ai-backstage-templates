@@ -12,8 +12,6 @@ LABEL name="ai-backstage-templates-notebook-3.11" \
 
 WORKDIR /opt/app-root/bin
 
-ENV HOME /opt/app-root/bin
-
 # Install Python packages and Jupyterlab extensions
 COPY requirements.txt ./
 COPY start-notebook.sh ./
@@ -30,13 +28,21 @@ COPY utils ./utils/
 USER root
 
 # Install usefull OS packages
-RUN dnf install -y jq postgresql git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
+RUN dnf install -y jq postgresql-client zsh git-lfs libsndfile && dnf clean all && rm -rf /var/cache/yum
 
 # Disable announcement plugin of jupyterlab
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
 
 # Other apps and tools installed as default user
 USER 1001
+
+ENV HOME /opt/app-root/src
+
+# Registry search order
+RUN mkdir -p $HOME/.config/containers && echo 'unqualified-search-registries = [';echo '  "registry.access.redhat.com",';echo '  "registry.home.glroland.com",';echo '  "registry.redhat.io",';echo '  "docker.io"'; echo ']'; echo 'short-name-mode = "permissive"' > $HOME/.config/containers/registries.conf
+
+# Python virtual environment
+RUN python3.11 -m venv $HOME/venv
 
 # setup path for runtime configuration
 RUN mkdir /opt/app-root/runtimes && \
@@ -67,7 +73,9 @@ RUN mkdir /opt/app-root/runtimes && \
 # Copy Elyra runtime-images definitions and set the version
 COPY runtime-images/ /opt/app-root/share/jupyter/metadata/runtime-images/
 
+COPY zshrc /opt/app-root/src/.zshrc
 WORKDIR /opt/app-root/src
+SHELL ["/bin/zsh", "-c"] 
 
 # Replace Notebook's launcher, "(ipykernel)" with Python's version 3.x.y
 RUN sed -i -e "s/Python.*/$(python --version | cut -d '.' -f-2)\",/" /opt/app-root/share/jupyter/kernels/python3/kernel.json

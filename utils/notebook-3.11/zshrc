@@ -1,0 +1,9 @@
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
+PATH=$PATH:.
+
+PS1='%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%~%F{red}]%(?.%F{green}.%F{red})>%b%f'
+
+source $HOME/venv/bin/activate
