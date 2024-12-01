@@ -39,7 +39,8 @@ USER 1001
 ENV HOME /opt/app-root/src
 
 # Registry search order
-RUN mkdir -p $HOME/.config/containers && echo 'unqualified-search-registries = [';echo '  "registry.access.redhat.com",';echo '  "registry.home.glroland.com",';echo '  "registry.redhat.io",';echo '  "docker.io"'; echo ']'; echo 'short-name-mode = "permissive"' > $HOME/.config/containers/registries.conf
+RUN mkdir -p /opt/app-root/src/.config/containers
+COPY registries.conf /opt/app-root/src/.config/containers/registries.conf
 
 # Python virtual environment
 RUN python3.11 -m venv $HOME/venv
