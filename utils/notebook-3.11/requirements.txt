@@ -45,3 +45,4 @@ onnxconverter-common # Required for skl2onnx, as upgraded version is not compati
 
 # DB connectors
 #psycopg
+#psycopg[binary]

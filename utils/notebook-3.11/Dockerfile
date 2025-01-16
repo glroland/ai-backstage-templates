@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/python-311:9.5-1731639064
+FROM registry.redhat.io/ubi9/python-311:9.5-1736353526
 
 LABEL name="ai-backstage-templates-notebook-3.11" \
     summary="glroland notebook for openshift ai development work" \
