@@ -12,7 +12,7 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/openshift.png",
             "label": "OpenShift",
-            "url": "https://console-openshift-console.apps.ocpprod.home.glroland.com"
+            "url": "https://console-openshift-console.apps.ocp.home.glroland.com"
         },
         {
             "iconUrl": "/homepage/icons/icons8/github.png",
@@ -22,12 +22,12 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/system-task.png",
             "label": "Prompt Playground",
-            "url": "https://open-webui-openwebui.apps.ocpprod.home.glroland.com"
+            "url": "https://open-webui-openwebui.apps.ocp.home.glroland.com"
         },
         {
             "iconUrl": "/homepage/icons/icons8/developerhub.png",
             "label": "Cloud IDE",
-            "url": "https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/workspaces"
+            "url": "https://devspaces.apps.ocp.home.glroland.com/dashboard/#/workspaces"
         },
         {
             "iconUrl": "/homepage/icons/quay.svg",
@@ -42,12 +42,12 @@ data:
         {
             "iconUrl": "/homepage/icons/argo-icon-color.svg",
             "label": "OpenShift GitOps",
-            "url": "https://openshift-gitops-server-openshift-gitops.apps.ocpprod.home.glroland.com/applications"
+            "url": "https://openshift-gitops-server-openshift-gitops.apps.ocp.home.glroland.com/applications"
         },
         {
             "iconUrl": "/homepage/icons/podman_logo.svg",
             "label": "OpenShift AI",
-            "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocpprod.home.glroland.com"
+            "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocp.home.glroland.com"
         }
         ]
     },
@@ -58,12 +58,12 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/security-checked.png",
             "label": "Getting Started",
-            "url": "https://backstage-developer-hub-devhub.apps.ocpprod.home.glroland.com/docs/default/component/ai-practice/getting_started/"
+            "url": "https://backstage-developer-hub-devhub.apps.ocp.home.glroland.com/docs/default/component/ai-practice/getting_started/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/safe-out.png",
             "label": "AI Best Practices",
-            "url": "https://backstage-developer-hub-devhub.apps.ocpprod.home.glroland.com/docs/default/component/ai-practice/best_practices/"
+            "url": "https://backstage-developer-hub-devhub.apps.ocp.home.glroland.com/docs/default/component/ai-practice/best_practices/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/slack-new.png",
@@ -73,7 +73,7 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/developerhub.png",
             "label": "AI Role Definitions",
-            "url": "https://backstage-developer-hub-devhub.apps.ocpprod.home.glroland.com/docs/default/component/ai-practice/ai_roles/"
+            "url": "https://backstage-developer-hub-devhub.apps.ocp.home.glroland.com/docs/default/component/ai-practice/ai_roles/"
         },
         {
             "iconUrl": "/homepage/icons/icons8/tear-off-calendar.png",
@@ -151,12 +151,12 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/devspaces.svg",
             "label": "Cloud IDE",
-            "url": "https://devspaces.apps.ocpprod.home.glroland.com/dashboard/#/workspaces"
+            "url": "https://devspaces.apps.ocp.home.glroland.com/dashboard/#/workspaces"
         },
         {
             "iconUrl": "/homepage/icons/podman_logo.svg",
             "label": "AI Workbech",
-            "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocpprod.home.glroland.com/notebookController"
+            "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocp.home.glroland.com/notebookController"
         },
         {
             "iconUrl": "/homepage/icons/podman_logo.svg",
@@ -177,12 +177,12 @@ data:
         {
             "iconUrl": "/homepage/icons/icons8/openshift.png",
             "label": "OpenShift",
-            "url": "https://console-openshift-console.apps.ocpprod.home.glroland.com/topology/ns/devhub?view=graph"
+            "url": "https://console-openshift-console.apps.ocp.home.glroland.com/topology/ns/devhub?view=graph"
         },
         {
             "iconUrl": "/homepage/icons/argo-icon-color.svg",
             "label": "ArgoCD",
-            "url": "https://openshift-gitops-server-openshift-gitops.apps.ocpprod.home.glroland.com/applications"
+            "url": "https://openshift-gitops-server-openshift-gitops.apps.ocp.home.glroland.com/applications"
         },
         {
             "iconUrl": "/homepage/icons/argo-icon-color.svg",
@@ -202,8 +202,8 @@ data:
         "links": [
         {
             "iconUrl": "/homepage/icons/icons8/openshift.png",
-            "label": "OpenShift (Prod)",
-            "url": "https://console-openshift-console.apps.ocpprod.home.glroland.com"
+            "label": "OpenShift",
+            "url": "https://console-openshift-console.apps.ocp.home.glroland.com"
         }
         ]
     }
