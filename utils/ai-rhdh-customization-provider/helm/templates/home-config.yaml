@@ -15,14 +15,24 @@ data:
             "url": "https://console-openshift-console.apps.ocp.home.glroland.com"
         },
         {
-            "iconUrl": "/homepage/icons/icons8/github.png",
-            "label": "GitHub Repos",
-            "url": "https://github.com/glroland?tab=repositories"
+            "iconUrl": "/homepage/icons/podman_logo.svg",
+            "label": "OpenShift AI",
+            "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocp.home.glroland.com"
         },
         {
             "iconUrl": "/homepage/icons/icons8/system-task.png",
             "label": "Prompt Playground",
             "url": "https://open-webui-openwebui.apps.ocp.home.glroland.com"
+        },
+        {
+            "iconUrl": "/homepage/icons/icons8/github.png",
+            "label": "Minio (S3)",
+            "url": "https://eclipse.home.glroland.com:9001"
+        },
+        {
+            "iconUrl": "/homepage/icons/icons8/github.png",
+            "label": "GitHub Repos",
+            "url": "https://github.com/glroland?tab=repositories"
         },
         {
             "iconUrl": "/homepage/icons/icons8/developerhub.png",
@@ -43,11 +53,6 @@ data:
             "iconUrl": "/homepage/icons/argo-icon-color.svg",
             "label": "OpenShift GitOps",
             "url": "https://openshift-gitops-server-openshift-gitops.apps.ocp.home.glroland.com/applications"
-        },
-        {
-            "iconUrl": "/homepage/icons/podman_logo.svg",
-            "label": "OpenShift AI",
-            "url": "https://rhods-dashboard-redhat-ods-applications.apps.ocp.home.glroland.com"
         }
         ]
     },
