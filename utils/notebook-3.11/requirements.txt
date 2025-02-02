@@ -21,6 +21,9 @@ jupyter-resource-usage
 nbdime
 nbgitpuller
 
+# Kubeflow Pipelines
+kfp[all]
+
 # pycodestyle is dependency of below packages 
 # and to achieve compatible of pycodestyle with python-lsp-server[all]
 # pinned the below packages
@@ -44,5 +47,5 @@ onnxconverter-common # Required for skl2onnx, as upgraded version is not compati
 #memray  # any version above this would cause issue with rich package
 
 # DB connectors
-#psycopg
-#psycopg[binary]
+psycopg[binary]
+

@@ -1,0 +1,8 @@
+# These are additional packages layered onto the base image
+
+pytest
+psycopg[binary]
+sqlalchemy
+onnxscript
+onnxruntime
+
