@@ -1,0 +1,85 @@
+apiVersion: serving.kserve.io/v1alpha1
+kind: ServingRuntime
+metadata:
+  annotations:
+    opendatahub.io/accelerator-name: ""
+    opendatahub.io/apiProtocol: REST
+    opendatahub.io/recommended-accelerators: ""
+    opendatahub.io/template-display-name: CUSTOM - vLLM Serving Runtime for CPU
+    opendatahub.io/template-name: vllm-cpu
+    openshift.io/display-name: CUSTOM - vLLM CPU (all-minilm-l6-v2)
+  name: all-minilm-l6-v2
+  labels:
+    opendatahub.io/dashboard: "true"
+spec:
+  builtInAdapter:
+    modelLoadingTimeoutMillis: 90000
+  containers:
+    - args:
+        - --model
+        - /mnt/models
+        - --port
+        - "8080"
+        - --max-model-len
+        - "256"
+      image: quay.io/rh-aiservices-bu/vllm-cpu-openai-ubi9:0.3
+      name: kserve-container
+      ports:
+        - containerPort: 8080
+          name: http1
+          protocol: TCP
+  multiModel: false
+  supportedModelFormats:
+    - autoSelect: true
+      name: vLLM
+  nodeSelector:
+    feature.node.kubernetes.io/cpu-cpuid.AVX2: 'true'
+---
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    openshift.io/display-name: all-minilm-l6-v2
+    serving.knative.openshift.io/enablePassthrough: 'true'
+    serving.kserve.io/deploymentMode: Serverless
+    sidecar.istio.io/inject: 'true'
+    sidecar.istio.io/rewriteAppHTTPProbers: 'true'
+  name: all-minilm-l6-v2
+  namespace: model-cars
+  labels:
+    opendatahub.io/dashboard: 'true'
+spec:
+  predictor:
+    annotations:
+      serving.knative.dev/progress-deadline: 30m
+    maxReplicas: 1
+    minReplicas: 1
+    model:
+      modelFormat:
+        name: vLLM
+      name: ''
+      resources:
+        limits:
+          cpu: '2'
+          memory: 8Gi
+        requests:
+          cpu: '1'
+          memory: 4Gi
+      runtime: all-minilm-l6-v2
+      storageUri: 'oci://registry.home.glroland.com/ai/modelcar-all-minilm-l6-v2:1'
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: all-minilm-l6-v2
+spec:
+  to:
+    kind: Service
+    name: all-minilm-l6-v2-predictor
+    weight: 100
+  port:
+    targetPort: all-minilm-l6-v2-predictor
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: None
+  wildcardPolicy: None
