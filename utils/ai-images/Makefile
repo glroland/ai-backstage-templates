@@ -10,3 +10,7 @@ build-runtime:
 
 build: build-notebook build-runtime
 
+
+build-hadoop-spark-notebook:
+	cd oai-hadoop-spark-notebook && podman build . --platform linux/linux/amd64 -t registry.home.glroland.com/paas/oai-hadoop-spark-notebook:$(timestamp)
+#	podman push registry.home.glroland.com/paas/oai-hadoop-spark-notebook:$(timestamp)
