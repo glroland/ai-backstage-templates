@@ -4,18 +4,17 @@ metadata:
   name: ai-rhdh-customization-provider
 spec:
   destination:
-    name: ''
+    name: in-cluster
     namespace: devhub
-    server: 'https://kubernetes.default.svc'
+    server: https://kubernetes.default.svc
   source:
-    path: 'utils/ai-rhdh-customization-provider/helm'
-    repoURL: 'https://github.com/glroland/ai-backstage-templates.git'
+    path: utils/ai-rhdh-customization-provider/helm
+    repoURL: https://github.com/glroland/ai-backstage-templates.git
     targetRevision: HEAD
     helm:
       valueFiles:
         - values.yaml
   sources: []
   project: default
-  syncPolicy:
-    automated:
-      prune: true
+
+
